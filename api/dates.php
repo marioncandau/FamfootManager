@@ -9,7 +9,7 @@
 		$query = "SELECT DISTINCT date FROM matchs";
 		$response = array();
 		$result = mysqli_query($conn, $query);
-		while($row = mysqli_fetch_array($result))
+		while($row = mysqli_fetch_assoc($result))
 		{
 			$response[] = $row;
 		}

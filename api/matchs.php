@@ -47,15 +47,17 @@
 		{
 			$query .= " WHERE date='".$date."'";
 		}
-		if($compet != '')
-		{
-			$query .= " AND competition='".$compet."'";
-		}
 		$response = array();
 		$result = mysqli_query($conn, $query);
 		while($row = mysqli_fetch_assoc($result))
 		{
-			$response[] = $row;
+			$str = str_replace('&eacute;', 'e', $row['competition']);
+			$str = str_replace('&agrave;', 'a', $str);
+			$str = str_replace('&egrave;', 'e', $str);
+			$str = str_replace('/', '-', $str);
+			if($compet == $str) {
+				$response[] = $row;
+			}
 		}
 		header('Content-Type: application/json');
 		echo json_encode($response, JSON_PRETTY_PRINT);
