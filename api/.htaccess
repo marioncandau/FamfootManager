@@ -1,0 +1,6 @@
+RewriteEngine On # Activer le module Rewrite
+RewriteRule ^dates/?$ dates.php [NC,L]
+RewriteRule ^compet/?$ compet.php [NC,L]
+RewriteRule ^[^/]+/id/(\d+)$ matchs.php?id=$1
+RewriteRule ^[^/]+/date/([^/]+)$ matchs.php?date=$1
+RewriteRule ^[^/]+/date/([^/]+)/compet/([^/]+)$ matchs.php?date=$1&compet=$2
