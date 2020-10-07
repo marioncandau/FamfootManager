@@ -1,6 +1,7 @@
 <?php
 	// Connect to database
 	include("db_connect.php");
+	include("back.php");
 	$request_method = $_SERVER["REQUEST_METHOD"];
 
 	function getDates()
@@ -17,17 +18,29 @@
 		echo json_encode($response, JSON_PRETTY_PRINT);
 	}
 	
-	switch($request_method)
+	$auth = apache_request_headers();
+	foreach ($auth as $header => $value)
 	{
-		
-		case 'GET':
-			// Retrieve Matchs
-			getDates();
-			break;
-		default:
-			// Invalid Request Method
-			header("HTTP/1.0 405 Method Not Allowed");
-			break;
+		if ($header == "Api") {
+			$auth = $value;
+		}
+	}
 
+	if(verify_APIKey($auth)) {
+		switch($request_method)
+		{
+			case 'GET':
+				// Retrieve Matchs
+				getDates();
+				break;
+			default:
+				// Invalid Request Method
+				header("HTTP/1.0 405 Method Not Allowed");
+				break;
+
+		}
+	}
+	else {
+		header("HTTP/1.0 401 Unauthorized");
 	}
 ?>

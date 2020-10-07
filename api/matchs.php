@@ -95,38 +95,49 @@
 		echo json_encode($response);
 	}
 	
-	switch($request_method)
+	$auth = apache_request_headers();
+	foreach ($auth as $header => $value)
 	{
-		
-		case 'GET':
-			// Retrieve Matchs
-			if(!empty($_GET["id"]))
-			{
-				$id=intval($_GET["id"]);
-				getMatch($id);
-			}
-			else if(!empty($_GET["date"]) and empty($_GET["compet"]))
-			{
-				$date=$_GET["date"];
-				getMatchFromDate($date);
-			}
-			else if(!empty($_GET["date"]) and !empty($_GET["compet"]))
-			{
-				$date=$_GET["date"];
-				$compet=$_GET["compet"];
-				getMatchFromDateAndCompet($date, $compet);
-			}
-			break;
-		default:
-			// Invalid Request Method
-			header("HTTP/1.0 405 Method Not Allowed");
-			break;
-			
-		case 'PUT':
-			// Modifier un produit
-			$id = intval($_GET["id"]);
-			updateMatch($id);
-			break;
+		if ($header == "Api") {
+			$auth = $value;
+		}
+	}
 
+	if(verify_APIKey($auth)) {
+
+		switch($request_method)
+		{
+			
+			case 'GET':
+				// Retrieve Matchs
+				if(!empty($_GET["id"]))
+				{
+					$id=intval($_GET["id"]);
+					getMatch($id);
+				}
+				else if(!empty($_GET["date"]) and empty($_GET["compet"]))
+				{
+					$date=$_GET["date"];
+					getMatchFromDate($date);
+				}
+				else if(!empty($_GET["date"]) and !empty($_GET["compet"]))
+				{
+					$date=$_GET["date"];
+					$compet=$_GET["compet"];
+					getMatchFromDateAndCompet($date, $compet);
+				}
+				break;
+			default:
+				// Invalid Request Method
+				header("HTTP/1.0 405 Method Not Allowed");
+				break;
+				
+			case 'PUT':
+				// Modifier un produit
+				$id = intval($_GET["id"]);
+				updateMatch($id);
+				break;
+
+		}
 	}
 ?>
