@@ -32,7 +32,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure ComboBox2Change(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
+    matchids: TStringList;
     procedure RequestDate;
     procedure RequestCompet(date: string);
     procedure RequestMatch(date, compet: string);
@@ -47,6 +49,45 @@ implementation
 
 {$R *.fmx}
 
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  id: string;
+  jValue: TJSONValue;
+  jsonarray: TJSONArray;
+  ArrayElement: TJSONValue;
+begin
+  Memo1.Lines.Clear;
+  id := matchids.Strings[ComboBox3.Selected.Index];
+
+  RESTRequest1.Method := TRESTRequestMethod.rmGET;
+  RESTClient1.BaseURL := 'http://www.famfoot.fr/api/matchs/id/' + id;
+
+  RESTRequest1.Execute;
+
+  jValue := RESTResponse1.JSONValue;
+  jsonarray := jValue as TJSONArray;
+  for ArrayElement in jsonarray do
+  begin
+    Memo1.Lines.Add(ArrayElement.FindValue('date')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('equipe1')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('equipe2')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('forfait_equipe1')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('forfait_equipe2')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('buteuses1')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('buteuses2')
+      .ToString.Replace('"', ''));
+    Memo1.Lines.Add(ArrayElement.FindValue('score')
+      .ToString.Replace('"', ''));
+    TabControl1.ActiveTab := TabItem2;
+  end;
+end;
+
 procedure TForm1.ComboBox1Change(Sender: TObject);
 begin
   RequestCompet(ComboBox1.Selected.Text);
@@ -59,6 +100,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
+  matchids := TStringList.Create;
   RequestDate;
 end;
 
@@ -108,6 +150,7 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
+      matchids.Clear;
   RESTRequest1.Method := TRESTRequestMethod.rmGET;
   RESTClient1.BaseURL := 'http://www.famfoot.fr/api/matchs/date/' + date +
     '/compet/' + compet;
@@ -121,6 +164,7 @@ begin
     ComboBox3.Items.Add(ArrayElement.FindValue('equipe1').ToString.Replace('"',
       '') + ' - ' + ArrayElement.FindValue('equipe2')
       .ToString.Replace('"', ''));
+    matchids.Add(ArrayElement.FindValue('id').ToString.Replace('"', ''))
   end;
 end;
 

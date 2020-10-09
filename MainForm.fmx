@@ -34,6 +34,8 @@ object Form1: TForm1
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Layout1: TLayout
         Align = Top
         Size.Width = 640.000000000000000000
@@ -106,6 +108,7 @@ object Form1: TForm1
           Size.PlatformDefault = False
           TabOrder = 0
           Text = 'S'#233'lectionner'
+          OnClick = Button1Click
         end
       end
     end
@@ -120,6 +123,8 @@ object Form1: TForm1
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Memo1: TMemo
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
         DataDetectorTypes = []
