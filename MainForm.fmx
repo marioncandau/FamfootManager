@@ -2,27 +2,29 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 480
-  ClientWidth = 640
+  ClientHeight = 594
+  ClientWidth = 343
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   DesignerMasterStyle = 3
   object TabControl1: TTabControl
     Align = Client
-    Size.Width = 640.000000000000000000
-    Size.Height = 432.000000000000000000
+    Size.Width = 343.000000000000000000
+    Size.Height = 546.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
     TabIndex = 0
     TabOrder = 0
     TabPosition = None
     Sizes = (
-      640s
-      432s
-      640s
-      432s)
+      343s
+      546s
+      343s
+      546s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
@@ -38,7 +40,7 @@ object Form1: TForm1
       ExplicitSize.cy = 8.000000000000000000
       object Layout1: TLayout
         Align = Top
-        Size.Width = 640.000000000000000000
+        Size.Width = 343.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -48,7 +50,7 @@ object Form1: TForm1
           Margins.Top = 3.000000000000000000
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
-          Size.Width = 634.000000000000000000
+          Size.Width = 337.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -58,7 +60,7 @@ object Form1: TForm1
       object Layout2: TLayout
         Align = Top
         Position.Y = 50.000000000000000000
-        Size.Width = 640.000000000000000000
+        Size.Width = 343.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -68,7 +70,7 @@ object Form1: TForm1
           Margins.Top = 3.000000000000000000
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
-          Size.Width = 634.000000000000000000
+          Size.Width = 337.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -78,7 +80,7 @@ object Form1: TForm1
       object Layout3: TLayout
         Align = Top
         Position.Y = 100.000000000000000000
-        Size.Width = 640.000000000000000000
+        Size.Width = 343.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -88,7 +90,7 @@ object Form1: TForm1
           Margins.Top = 3.000000000000000000
           Margins.Right = 3.000000000000000000
           Margins.Bottom = 3.000000000000000000
-          Size.Width = 634.000000000000000000
+          Size.Width = 337.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -96,14 +98,14 @@ object Form1: TForm1
       end
       object Layout4: TLayout
         Align = Bottom
-        Position.Y = 382.000000000000000000
-        Size.Width = 640.000000000000000000
+        Position.Y = 496.000000000000000000
+        Size.Width = 343.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 3
         object Button1: TButton
           Align = Client
-          Size.Width = 640.000000000000000000
+          Size.Width = 343.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -125,27 +127,222 @@ object Form1: TForm1
       Text = 'TabItem2'
       ExplicitSize.cx = 8.000000000000000000
       ExplicitSize.cy = 8.000000000000000000
-      object Memo1: TMemo
-        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-        DataDetectorTypes = []
-        Align = Client
-        Size.Width = 640.000000000000000000
-        Size.Height = 432.000000000000000000
+      object Layout5: TLayout
+        Align = Top
+        Size.Width = 343.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Edit1: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          TabOrder = 0
+          ReadOnly = True
+          Size.Width = 230.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object Label2: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Comp'#233'tition'
+          TabOrder = 1
+        end
+      end
+      object Layout6: TLayout
+        Align = Top
+        Position.Y = 125.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 632.000000000000000000
-        Viewport.Height = 424.000000000000000000
+        object Edit2: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          TabOrder = 0
+          Size.Width = 230.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object Label3: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Score'
+          TabOrder = 1
+        end
+      end
+      object Layout7: TLayout
+        Align = Top
+        Position.Y = 80.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 45.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Edit3: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = VertCenter
+          TabOrder = 0
+          ReadOnly = True
+          Position.X = 113.000000000000000000
+          Position.Y = 6.000000000000000000
+          Size.Width = 230.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object Label4: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Match'
+          TabOrder = 1
+        end
+      end
+      object Layout8: TLayout
+        Align = Top
+        Position.Y = 211.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 94.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object Label5: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 94.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Buteuses '#233'quipe 1'
+          TabOrder = 0
+        end
+        object Memo1: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          TextSettings.WordWrap = True
+          Align = Client
+          Size.Width = 230.000000000000000000
+          Size.Height = 94.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Viewport.Width = 222.000000000000000000
+          Viewport.Height = 86.000000000000000000
+        end
+      end
+      object Layout9: TLayout
+        Align = Top
+        Position.Y = 305.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 104.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Label6: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 104.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Buteuses '#233'quipe 2'
+          TabOrder = 0
+        end
+        object Memo2: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
+          TextSettings.WordWrap = True
+          Align = Client
+          Size.Width = 230.000000000000000000
+          Size.Height = 104.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Viewport.Width = 222.000000000000000000
+          Viewport.Height = 96.000000000000000000
+        end
+      end
+      object Button2: TButton
+        Align = Bottom
+        Position.Y = 490.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        Text = 'Sauvegarder'
+        OnClick = Button2Click
+      end
+      object Layout10: TLayout
+        Align = Top
+        Position.Y = 161.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object CheckBox1: TCheckBox
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 158.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Forfait '#233'quipe 1'
+        end
+        object CheckBox2: TCheckBox
+          Align = Right
+          Margins.Left = 3.000000000000000000
+          Position.X = 189.000000000000000000
+          Size.Width = 154.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Forfait '#233'quipe 2'
+        end
+      end
+      object Layout11: TLayout
+        Align = Top
+        Position.Y = 41.000000000000000000
+        Size.Width = 343.000000000000000000
+        Size.Height = 39.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object Label7: TLabel
+          Align = Left
+          Margins.Left = 3.000000000000000000
+          Position.X = 3.000000000000000000
+          Size.Width = 110.000000000000000000
+          Size.Height = 39.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Id'
+          TabOrder = 1
+        end
+        object Edit6: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          TabOrder = 0
+          ReadOnly = True
+          Size.Width = 230.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+        end
       end
     end
   end
   object ToolBar1: TToolBar
-    Size.Width = 640.000000000000000000
+    Size.Width = 343.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     object Label1: TLabel
       Align = Client
-      Size.Width = 640.000000000000000000
+      Size.Width = 343.000000000000000000
       Size.Height = 48.000000000000000000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
@@ -162,7 +359,7 @@ object Form1: TForm1
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 320
+    Left = 40
     Top = 224
   end
   object RESTRequest1: TRESTRequest
@@ -171,11 +368,107 @@ object Form1: TForm1
     Params = <>
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 448
-    Top = 360
+    Left = 136
+    Top = 224
   end
   object RESTResponse1: TRESTResponse
-    Left = 504
-    Top = 288
+    Left = 248
+    Top = 224
+  end
+  object RESTClient2: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 48
+    Top = 304
+  end
+  object RESTResponse2: TRESTResponse
+    Left = 248
+    Top = 304
+  end
+  object RESTRequest2: TRESTRequest
+    Client = RESTClient3
+    Params = <>
+    Response = RESTResponse3
+    SynchronizedEvents = False
+    Left = 136
+    Top = 312
+  end
+  object RESTClient3: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 48
+    Top = 384
+  end
+  object RESTClient4: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 56
+    Top = 504
+  end
+  object RESTRequest3: TRESTRequest
+    Client = RESTClient5
+    Params = <>
+    Response = RESTResponse3
+    SynchronizedEvents = False
+    Left = 152
+    Top = 384
+  end
+  object RESTRequest4: TRESTRequest
+    Client = RESTClient5
+    Params = <>
+    Response = RESTResponse3
+    SynchronizedEvents = False
+    Left = 144
+    Top = 464
+  end
+  object RESTResponse3: TRESTResponse
+    Left = 264
+    Top = 384
+  end
+  object RESTResponse4: TRESTResponse
+    Left = 264
+    Top = 464
+  end
+  object RESTClient5: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 56
+    Top = 464
+  end
+  object RESTRequest5: TRESTRequest
+    Client = RESTClient5
+    Params = <>
+    Response = RESTResponse3
+    SynchronizedEvents = False
+    Left = 152
+    Top = 472
+  end
+  object RESTResponse5: TRESTResponse
+    Left = 272
+    Top = 472
   end
 end

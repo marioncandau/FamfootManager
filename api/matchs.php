@@ -1,6 +1,7 @@
 <?php
 	// Connect to database
 	include("db_connect.php");
+	include("back.php");
 	$request_method = $_SERVER["REQUEST_METHOD"];
 
 	function getMatch($id=0)
@@ -66,20 +67,20 @@
 	function updateMatch($id)
 	{
 		global $conn;
-		$_PUT = array();
-		parse_str(file_get_contents('php://input'), $_PUT);
+		// $_PUT = array();
+		$_PUT = json_decode(file_get_contents('php://input'), true);
 		$forfait1 = intval($_PUT["forfait1"]);
 		$forfait2 = intval($_PUT["forfait2"]);
 		$buteuses1 = $_PUT["buteuses1"];
 		$buteuses2 = $_PUT["buteuses2"];
 		$score = $_PUT["score"];
-		$query="UPDATE matchs SET forfait1=".$forfait1.", forfait2=".$forfait2.", buteuses1='".$buteuses1."', buteuses2='".$buteuses2."', score='".$score."' WHERE id=".$id;
+		$query="UPDATE matchs SET forfait_equipe1=".$forfait1.", forfait_equipe2=".$forfait2.", buteuses1='".$buteuses1."', buteuses2='".$buteuses2."', score='".$score."' WHERE id=".$id;
 		
 		if(mysqli_query($conn, $query))
 		{
 			$response=array(
 				'status' => 1,
-				'status_message' =>'match mis a jour avec succes.'
+				'status_message' =>'match mis a jour avec succes => id = '.$id.', buteuses1 = '.$buteuses1.', buteuses2 = '.$buteuses2.', score = '.$score
 			);
 		}
 		else

@@ -1,6 +1,7 @@
 <?php
 	// Connect to database
 	include("db_connect.php");
+	include("back.php");
 	$request_method = $_SERVER["REQUEST_METHOD"];
 
 	function getCompetitions($date)
