@@ -384,20 +384,22 @@ object Form1: TForm1
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 48
-    Top = 304
+    Left = 40
+    Top = 272
   end
   object RESTResponse2: TRESTResponse
     Left = 248
-    Top = 304
+    Top = 272
   end
   object RESTRequest2: TRESTRequest
-    Client = RESTClient3
+    Accept = '*/*'
+    Client = RESTClient2
+    Method = rmPUT
     Params = <>
-    Response = RESTResponse3
+    Response = RESTResponse2
     SynchronizedEvents = False
     Left = 136
-    Top = 312
+    Top = 272
   end
   object RESTClient3: TRESTClient
     ContentType = 'application/json'
@@ -408,8 +410,8 @@ object Form1: TForm1
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 48
-    Top = 384
+    Left = 40
+    Top = 320
   end
   object RESTClient4: TRESTClient
     ContentType = 'application/json'
@@ -420,32 +422,40 @@ object Form1: TForm1
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 56
-    Top = 504
+    Left = 40
+    Top = 416
   end
   object RESTRequest3: TRESTRequest
-    Client = RESTClient5
-    Params = <>
+    Accept = '*/*'
+    Client = RESTClient3
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse3
     SynchronizedEvents = False
-    Left = 152
-    Top = 384
+    Left = 136
+    Top = 320
   end
   object RESTRequest4: TRESTRequest
-    Client = RESTClient5
+    Accept = '*/*'
+    Client = RESTClient4
     Params = <>
-    Response = RESTResponse3
+    Response = RESTResponse4
     SynchronizedEvents = False
-    Left = 144
-    Top = 464
+    Left = 136
+    Top = 416
   end
   object RESTResponse3: TRESTResponse
-    Left = 264
-    Top = 384
+    Left = 248
+    Top = 320
   end
   object RESTResponse4: TRESTResponse
-    Left = 264
-    Top = 464
+    Left = 248
+    Top = 416
   end
   object RESTClient5: TRESTClient
     ContentType = 'application/json'
@@ -456,19 +466,20 @@ object Form1: TForm1
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 56
-    Top = 464
+    Left = 40
+    Top = 368
   end
   object RESTRequest5: TRESTRequest
+    Accept = '*/*'
     Client = RESTClient5
     Params = <>
-    Response = RESTResponse3
+    Response = RESTResponse5
     SynchronizedEvents = False
-    Left = 152
-    Top = 472
+    Left = 136
+    Top = 368
   end
   object RESTResponse5: TRESTResponse
-    Left = 272
-    Top = 472
+    Left = 248
+    Top = 368
   end
 end

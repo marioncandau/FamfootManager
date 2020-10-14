@@ -97,7 +97,6 @@ begin
   else
     raise Exception.Create('Indice hors liste');
 
-  RESTRequest1.Method := TRESTRequestMethod.rmGET;
   RESTClient1.BaseURL := 'http://www.famfoot.fr/api/matchs/id/' + id;
   RESTRequest1.Execute;
 
@@ -161,7 +160,6 @@ var
   jValue: TJSONObject;
   ArrayElement: TJSONValue;
 begin
-  RESTRequest2.Method := TRESTRequestMethod.rmPUT;
   RESTClient2.BaseURL := 'http://www.famfoot.fr/api/matchs/id/' + Edit6.Text;
 
   jValue := TJSONObject.Create;
@@ -241,9 +239,8 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-  RESTRequest3.Method := TRESTRequestMethod.rmGET;
+  RESTRequest3.Method := rmGET;
   RESTClient3.BaseURL := 'http://www.famfoot.fr/api/dates';
-
   RESTRequest3.Execute;
 
   if RESTResponse3.Status.Success then
@@ -267,8 +264,6 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-
-  RESTRequest4.Method := TRESTRequestMethod.rmGET;
   RESTClient4.BaseURL := 'http://www.famfoot.fr/api/compet/' + date;
 
   RESTRequest4.Execute;
@@ -296,7 +291,8 @@ var
 begin
   if assigned(matchids) then
     matchids.Clear;
-  RESTRequest5.Method := TRESTRequestMethod.rmGET;
+
+
   RESTClient5.BaseURL := 'http://www.famfoot.fr/api/matchs/date/' + date +
     '/compet/' + compet;
 
