@@ -242,9 +242,21 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 72.png" Configuration="Release" Class="Android_LauncherIcon72">
+                    <Platform Name="Android64">
+                        <RemoteName>ic_launcher.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_96x96.png" Configuration="Debug" Class="Android_NotificationIcon96">
                     <Platform Name="Android64">
                         <RemoteName>ic_notification.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 144.png" Configuration="Release" Class="Android_LauncherIcon144">
+                    <Platform Name="Android64">
+                        <RemoteName>ic_launcher.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -254,21 +266,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 72.png" Configuration="Release" Class="Android_LauncherIcon72">
-                    <Platform Name="Android64">
-                        <RemoteName>ic_launcher.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_72x72.png" Configuration="Release" Class="Android_NotificationIcon72">
                     <Platform Name="Android64">
                         <RemoteName>ic_notification.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - très grande.png" Configuration="Release" Class="Android_SplashImage960">
-                    <Platform Name="Android64">
-                        <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -281,6 +281,18 @@
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_144x144.png" Configuration="Debug" Class="Android_LauncherIcon144">
                     <Platform Name="Android64">
                         <RemoteName>ic_launcher.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - normale.png" Configuration="Release" Class="Android_SplashImage470">
+                    <Platform Name="Android64">
+                        <RemoteName>splash_image.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - petite.png" Configuration="Release" Class="Android_SplashImage426">
+                    <Platform Name="Android64">
+                        <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -357,9 +369,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 96.png" Configuration="Release" Class="Android_LauncherIcon96">
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - grande.png" Configuration="Release" Class="Android_SplashImage640">
                     <Platform Name="Android64">
-                        <RemoteName>ic_launcher.png</RemoteName>
+                        <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -404,18 +416,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 144.png" Configuration="Release" Class="Android_LauncherIcon144">
-                    <Platform Name="Android64">
-                        <RemoteName>ic_launcher.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - grande.png" Configuration="Release" Class="Android_SplashImage640">
-                    <Platform Name="Android64">
-                        <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Android64\Release\classes.dex" Configuration="Release" Class="AndroidClassesDexFile">
                     <Platform Name="Android64">
                         <RemoteName>classes.dex</RemoteName>
@@ -437,6 +437,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 48.png" Configuration="Release" Class="Android_LauncherIcon48">
+                    <Platform Name="Android64">
+                        <RemoteName>ic_launcher.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Android64\Release\styles-v21.xml" Configuration="Release" Class="AndroidSplashStylesV21">
                     <Platform Name="Android64">
                         <RemoteName>styles.xml</RemoteName>
@@ -449,12 +455,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png" Configuration="Debug" Class="Android_LauncherIcon48">
-                    <Platform Name="Android64">
-                        <RemoteName>ic_launcher.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 48.png" Configuration="Release" Class="Android_LauncherIcon48">
                     <Platform Name="Android64">
                         <RemoteName>ic_launcher.png</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -477,18 +477,18 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 96.png" Configuration="Release" Class="Android_LauncherIcon96">
+                    <Platform Name="Android64">
+                        <RemoteName>ic_launcher.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Android64\Release\splash_image_def.xml" Configuration="Release" Class="AndroidSplashImageDef">
                     <Platform Name="Android64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png" Configuration="Debug" Class="Android_SplashImage426">
-                    <Platform Name="Android64">
-                        <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - normale.png" Configuration="Release" Class="Android_SplashImage470">
                     <Platform Name="Android64">
                         <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -506,6 +506,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - très grande.png" Configuration="Release" Class="Android_SplashImage960">
+                    <Platform Name="Android64">
+                        <RemoteName>splash_image.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Android64\Debug\strings.xml" Configuration="Debug" Class="Android_Strings">
                     <Platform Name="Android64">
                         <Overwrite>true</Overwrite>
@@ -514,12 +520,6 @@
                 <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - 36.png" Configuration="Release" Class="Android_LauncherIcon36">
                     <Platform Name="Android64">
                         <RemoteName>ic_launcher.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\ResultatsToImage\logofamfootcontour - petite.png" Configuration="Release" Class="Android_SplashImage426">
-                    <Platform Name="Android64">
-                        <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1368,4 +1368,5 @@
     <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
     <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
     <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+    <ProjectExtensions/>
 </Project>

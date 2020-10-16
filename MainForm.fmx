@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Form1'
   ClientHeight = 594
-  ClientWidth = 343
+  ClientWidth = 397
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -11,110 +11,46 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   OnShow = FormShow
   DesignerMasterStyle = 3
-  object TabControl1: TTabControl
+  object ToolBar1: TToolBar
+    Size.Width = 397.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = claGoldenrod
+      Sides = []
+      Size.Width = 397.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      object Label1: TLabel
+        Align = Client
+        Size.Width = 397.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Famfoot Manager'
+        TabOrder = 0
+      end
+    end
+  end
+  object TabControl2: TTabControl
     Align = Client
-    Size.Width = 343.000000000000000000
+    Size.Width = 397.000000000000000000
     Size.Height = 546.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
-    TabOrder = 0
+    TabIndex = 2
+    TabOrder = 1
     TabPosition = None
     Sizes = (
-      343s
+      397s
       546s
-      343s
+      397s
+      546s
+      397s
       546s)
-    object TabItem1: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = True
-      Size.Width = 8.000000000000000000
-      Size.Height = 8.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = ''
-      TabOrder = 0
-      Text = 'TabItem1'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Layout1: TLayout
-        Align = Top
-        Size.Width = 343.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 2
-        object ComboBox1: TComboBox
-          Align = Client
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 337.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          OnChange = ComboBox1Change
-        end
-      end
-      object Layout2: TLayout
-        Align = Top
-        Position.Y = 50.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        object ComboBox2: TComboBox
-          Align = Client
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 337.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          OnChange = ComboBox2Change
-        end
-      end
-      object Layout3: TLayout
-        Align = Top
-        Position.Y = 100.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        object ComboBox3: TComboBox
-          Align = Client
-          Margins.Left = 3.000000000000000000
-          Margins.Top = 3.000000000000000000
-          Margins.Right = 3.000000000000000000
-          Margins.Bottom = 3.000000000000000000
-          Size.Width = 337.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-        end
-      end
-      object Layout4: TLayout
-        Align = Bottom
-        Position.Y = 496.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        object Button1: TButton
-          Align = Client
-          Size.Width = 343.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Text = 'S'#233'lectionner'
-          OnClick = Button1Click
-        end
-      end
-    end
-    object TabItem2: TTabItem
+    object TabItemAccueil: TTabItem
       CustomIcon = <
         item
         end>
@@ -124,230 +60,582 @@ object Form1: TForm1
       Size.PlatformDefault = False
       StyleLookup = ''
       TabOrder = 0
-      Text = 'TabItem2'
-      ExplicitSize.cx = 8.000000000000000000
-      ExplicitSize.cy = 8.000000000000000000
-      object Layout5: TLayout
+      Text = 'Accueil'
+      object Button3: TButton
         Align = Top
-        Size.Width = 343.000000000000000000
-        Size.Height = 41.000000000000000000
+        Size.Width = 397.000000000000000000
+        Size.Height = 89.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        object Edit1: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Client
-          TabOrder = 0
-          ReadOnly = True
-          Size.Width = 230.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object Label2: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 41.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Comp'#233'tition'
-          TabOrder = 1
-        end
+        Text = 'Matchs'
+        OnClick = Button3Click
       end
-      object Layout6: TLayout
+      object Button4: TButton
         Align = Top
-        Position.Y = 125.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 36.000000000000000000
+        Position.Y = 89.000000000000000000
+        Size.Width = 397.000000000000000000
+        Size.Height = 89.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        object Edit2: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Client
-          TabOrder = 0
-          Size.Width = 230.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object Label3: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 36.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Score'
-          TabOrder = 1
-        end
+        Text = 'Buteuses'
+        OnClick = Button4Click
       end
-      object Layout7: TLayout
-        Align = Top
-        Position.Y = 80.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 45.000000000000000000
+    end
+    object TabItemMatchs: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Matchs'
+      object TabControl1: TTabControl
+        Align = Client
+        Size.Width = 397.000000000000000000
+        Size.Height = 546.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 2
-        object Edit3: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = VertCenter
+        TabHeight = 49.000000000000000000
+        TabIndex = 0
+        TabOrder = 0
+        TabPosition = None
+        Sizes = (
+          397s
+          546s
+          397s
+          546s)
+        object TabItem1: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = True
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
           TabOrder = 0
-          ReadOnly = True
-          Position.X = 113.000000000000000000
-          Position.Y = 6.000000000000000000
-          Size.Width = 230.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
+          Text = 'TabItem1'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
+          object Layout1: TLayout
+            Align = Top
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object ComboBox1: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Top = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Margins.Bottom = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              OnChange = ComboBox1Change
+            end
+          end
+          object Layout2: TLayout
+            Align = Top
+            Position.Y = 50.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object ComboBox2: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Top = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Margins.Bottom = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              OnChange = ComboBox2Change
+            end
+          end
+          object Layout3: TLayout
+            Align = Top
+            Position.Y = 100.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object ComboBox3: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Top = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Margins.Bottom = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+          object Layout4: TLayout
+            Align = Bottom
+            Position.Y = 496.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object Button1: TButton
+              Align = Client
+              Size.Width = 397.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'S'#233'lectionner'
+              OnClick = Button1Click
+            end
+          end
         end
-        object Label4: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 45.000000000000000000
+        object TabItem2: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
-          Text = 'Match'
-          TabOrder = 1
-        end
-      end
-      object Layout8: TLayout
-        Align = Top
-        Position.Y = 211.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 94.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        object Label5: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 94.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Buteuses '#233'quipe 1'
+          StyleLookup = ''
           TabOrder = 0
-        end
-        object Memo1: TMemo
-          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-          DataDetectorTypes = []
-          TextSettings.WordWrap = True
-          Align = Client
-          Size.Width = 230.000000000000000000
-          Size.Height = 94.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Viewport.Width = 222.000000000000000000
-          Viewport.Height = 86.000000000000000000
-        end
-      end
-      object Layout9: TLayout
-        Align = Top
-        Position.Y = 305.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 104.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 4
-        object Label6: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 104.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Buteuses '#233'quipe 2'
-          TabOrder = 0
-        end
-        object Memo2: TMemo
-          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-          DataDetectorTypes = []
-          TextSettings.WordWrap = True
-          Align = Client
-          Size.Width = 230.000000000000000000
-          Size.Height = 104.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Viewport.Width = 222.000000000000000000
-          Viewport.Height = 96.000000000000000000
-        end
-      end
-      object Button2: TButton
-        Align = Bottom
-        Position.Y = 490.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 56.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 5
-        Text = 'Sauvegarder'
-        OnClick = Button2Click
-      end
-      object Layout10: TLayout
-        Align = Top
-        Position.Y = 161.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 50.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 6
-        object CheckBox1: TCheckBox
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 158.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          Text = 'Forfait '#233'quipe 1'
-        end
-        object CheckBox2: TCheckBox
-          Align = Right
-          Margins.Left = 3.000000000000000000
-          Position.X = 189.000000000000000000
-          Size.Width = 154.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 0
-          Text = 'Forfait '#233'quipe 2'
-        end
-      end
-      object Layout11: TLayout
-        Align = Top
-        Position.Y = 41.000000000000000000
-        Size.Width = 343.000000000000000000
-        Size.Height = 39.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 7
-        object Label7: TLabel
-          Align = Left
-          Margins.Left = 3.000000000000000000
-          Position.X = 3.000000000000000000
-          Size.Width = 110.000000000000000000
-          Size.Height = 39.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Id'
-          TabOrder = 1
-        end
-        object Edit6: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Client
-          TabOrder = 0
-          ReadOnly = True
-          Size.Width = 230.000000000000000000
-          Size.Height = 32.000000000000000000
-          Size.PlatformDefault = False
+          Text = 'TabItem2'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
+          object Layout5: TLayout
+            Align = Top
+            Size.Width = 397.000000000000000000
+            Size.Height = 41.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object Edit1: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              ReadOnly = True
+              Size.Width = 284.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+            end
+            object Label2: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 41.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Comp'#233'tition'
+              TabOrder = 1
+            end
+          end
+          object Layout6: TLayout
+            Align = Top
+            Position.Y = 125.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object Edit2: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              Size.Width = 284.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+            end
+            object Label3: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 36.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Score'
+              TabOrder = 1
+            end
+          end
+          object Layout7: TLayout
+            Align = Top
+            Position.Y = 80.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 45.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object Edit3: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = VertCenter
+              TabOrder = 0
+              ReadOnly = True
+              Position.X = 113.000000000000000000
+              Position.Y = 6.000000000000000000
+              Size.Width = 284.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+            end
+            object Label4: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 45.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Match'
+              TabOrder = 1
+            end
+          end
+          object Layout8: TLayout
+            Align = Top
+            Position.Y = 211.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 94.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object Label5: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 94.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Buteuses '#233'quipe 1'
+              TabOrder = 0
+            end
+            object Memo1: TMemo
+              Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+              DataDetectorTypes = []
+              TextSettings.WordWrap = True
+              Align = Client
+              Size.Width = 284.000000000000000000
+              Size.Height = 94.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Viewport.Width = 276.000000000000000000
+              Viewport.Height = 86.000000000000000000
+            end
+          end
+          object Layout9: TLayout
+            Align = Top
+            Position.Y = 305.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 104.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            object Label6: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 104.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Buteuses '#233'quipe 2'
+              TabOrder = 0
+            end
+            object Memo2: TMemo
+              Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+              DataDetectorTypes = []
+              TextSettings.WordWrap = True
+              Align = Client
+              Size.Width = 284.000000000000000000
+              Size.Height = 104.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Viewport.Width = 276.000000000000000000
+              Viewport.Height = 96.000000000000000000
+            end
+          end
+          object Button2: TButton
+            Align = Bottom
+            Position.Y = 490.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 56.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            Text = 'Sauvegarder'
+            OnClick = Button2Click
+          end
+          object Layout10: TLayout
+            Align = Top
+            Position.Y = 161.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            object CheckBox1: TCheckBox
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 158.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              Text = 'Forfait '#233'quipe 1'
+            end
+            object CheckBox2: TCheckBox
+              Align = Right
+              Margins.Left = 3.000000000000000000
+              Position.X = 243.000000000000000000
+              Size.Width = 154.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'Forfait '#233'quipe 2'
+            end
+          end
+          object Layout11: TLayout
+            Align = Top
+            Position.Y = 41.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 39.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 7
+            object Label7: TLabel
+              Align = Left
+              Margins.Left = 3.000000000000000000
+              Position.X = 3.000000000000000000
+              Size.Width = 110.000000000000000000
+              Size.Height = 39.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Id'
+              TabOrder = 1
+            end
+            object Edit6: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              ReadOnly = True
+              Size.Width = 284.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
         end
       end
     end
-  end
-  object ToolBar1: TToolBar
-    Size.Width = 343.000000000000000000
-    Size.Height = 48.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object Label1: TLabel
-      Align = Client
-      Size.Width = 343.000000000000000000
-      Size.Height = 48.000000000000000000
+    object TabItemButeuses: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.HorzAlign = Center
-      Text = 'Famfoot Manager'
+      StyleLookup = ''
       TabOrder = 0
+      Text = 'Buteuses'
+      object TabControl3: TTabControl
+        Align = Client
+        Size.Width = 397.000000000000000000
+        Size.Height = 546.000000000000000000
+        Size.PlatformDefault = False
+        TabHeight = 49.000000000000000000
+        TabIndex = 1
+        TabOrder = 0
+        TabPosition = None
+        Sizes = (
+          397s
+          546s
+          397s
+          546s
+          397s
+          546s
+          397s
+          546s)
+        object TabItemButeusesAccueil: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Accueil'
+          object Button5: TButton
+            Align = Top
+            Size.Width = 397.000000000000000000
+            Size.Height = 89.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Nouvelle'
+          end
+          object Button6: TButton
+            Align = Top
+            Position.Y = 178.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 89.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'Modifier'
+          end
+          object Button7: TButton
+            Align = Top
+            Position.Y = 89.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 89.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'Supprimer'
+          end
+        end
+        object TabItemNouvelleButeuse: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = True
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'TabItemNouvelleButeuse'
+          object Layout12: TLayout
+            Align = Top
+            Position.Y = 50.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object ComboBoxNewButCompet: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+          object Layout13: TLayout
+            Align = Top
+            Position.Y = 100.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object ComboBoxNewButMatch: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+          object Layout14: TLayout
+            Align = Top
+            Position.Y = 150.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object ComboBoxNewButButeuse: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+          object Layout15: TLayout
+            Align = Top
+            Position.Y = 200.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            object Edit4: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Nom de la buteuse'
+            end
+          end
+          object Layout16: TLayout
+            Align = Top
+            Position.Y = 250.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            object Edit5: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              KeyboardType = NumberPad
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Journ'#233'e'
+            end
+          end
+          object Button8: TButton
+            Align = Bottom
+            Position.Y = 480.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 66.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            Text = 'Sauvegarder'
+          end
+          object Layout17: TLayout
+            Align = Top
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object ComboBoxNewButDate: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+        end
+        object TabItemModifierButeuse: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'TabItemModifierButeuse'
+        end
+        object TabItemSupprimerButeuse: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'TabItemSupprimerButeuse'
+        end
+      end
     end
   end
   object RESTClient1: TRESTClient
@@ -481,5 +769,30 @@ object Form1: TForm1
   object RESTResponse5: TRESTResponse
     Left = 248
     Top = 368
+  end
+  object RESTClient6: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 40
+    Top = 464
+  end
+  object RESTRequest6: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient6
+    Params = <>
+    Response = RESTResponse6
+    SynchronizedEvents = False
+    Left = 136
+    Top = 464
+  end
+  object RESTResponse6: TRESTResponse
+    Left = 248
+    Top = 472
   end
 end

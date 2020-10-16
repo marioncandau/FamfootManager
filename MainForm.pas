@@ -8,7 +8,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
   FMX.Layouts, FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListBox,
   FMX.ScrollBox, FMX.Memo, REST.Types, REST.Client, Data.Bind.Components,
-  Data.Bind.ObjectScope, System.JSON, FMX.Edit;
+  Data.Bind.ObjectScope, System.JSON, FMX.Edit, FMX.Objects;
 
 type
   TForm1 = class(TForm)
@@ -62,6 +62,37 @@ type
     RESTClient5: TRESTClient;
     RESTRequest5: TRESTRequest;
     RESTResponse5: TRESTResponse;
+    TabControl2: TTabControl;
+    TabItemAccueil: TTabItem;
+    TabItemMatchs: TTabItem;
+    TabItemButeuses: TTabItem;
+    Button3: TButton;
+    Rectangle1: TRectangle;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    TabControl3: TTabControl;
+    TabItemButeusesAccueil: TTabItem;
+    TabItemNouvelleButeuse: TTabItem;
+    TabItemModifierButeuse: TTabItem;
+    TabItemSupprimerButeuse: TTabItem;
+    ComboBoxNewButCompet: TComboBox;
+    Layout12: TLayout;
+    Layout13: TLayout;
+    ComboBoxNewButMatch: TComboBox;
+    Layout14: TLayout;
+    ComboBoxNewButButeuse: TComboBox;
+    Layout15: TLayout;
+    Edit4: TEdit;
+    Layout16: TLayout;
+    Edit5: TEdit;
+    Button8: TButton;
+    RESTClient6: TRESTClient;
+    RESTRequest6: TRESTRequest;
+    RESTResponse6: TRESTResponse;
+    Layout17: TLayout;
+    ComboBoxNewButDate: TComboBox;
     procedure FormShow(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure ComboBox2Change(Sender: TObject);
@@ -69,6 +100,8 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     matchids: TStringList;
     procedure RequestDate;
@@ -204,6 +237,16 @@ begin
       RESTResponse2.StatusText);
 end;
 
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  TabControl2.ActiveTab := TabItemMatchs;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  TabControl2.ActiveTab := TabItemButeuses;
+end;
+
 procedure TForm1.ComboBox1Change(Sender: TObject);
 begin
   ComboBox2.Clear;
@@ -229,6 +272,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
+  TabControl2.ActiveTab := TabItemAccueil;
   TabControl1.ActiveTab := TabItem1;
   RequestDate;
 end;

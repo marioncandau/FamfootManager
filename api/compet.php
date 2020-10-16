@@ -4,7 +4,7 @@
 	include("back.php");
 	$request_method = $_SERVER["REQUEST_METHOD"];
 
-	function getCompetitions($date)
+	function getCompetitionsFromDate($date)
 	{
 		global $conn;
 		$query = "SELECT DISTINCT competition FROM matchs WHERE date = '".$date."'";
@@ -40,7 +40,7 @@
 				if(!empty($_GET["date"]))
 				{
 					$date=$_GET["date"];
-					getCompetitions($date);
+					getCompetitionsFromDate($date);
 				}
 				break;
 			default:
