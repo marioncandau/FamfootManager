@@ -108,7 +108,6 @@
 
 		switch($request_method)
 		{
-			
 			case 'GET':
 				// Retrieve Matchs
 				if(!empty($_GET["id"]))

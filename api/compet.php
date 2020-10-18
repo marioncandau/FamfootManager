@@ -22,6 +22,23 @@
 		echo json_encode($response, JSON_PRETTY_PRINT);
 	}
 
+	function getCompetitionsButeuses()
+	{
+		global $conn;
+		$query = "SELECT DISTINCT competition FROM matchs WHERE compet_slug = 'r1' or compet_slug = 'r2'";
+		$response = array();
+		$result = mysqli_query($conn, $query);
+		while($row = mysqli_fetch_assoc($result))
+		{
+			$str = str_replace('&eacute;', '%C3%A9', $row);
+			$str = str_replace('&agrave;', '%C3%A0', $str);
+			$str = str_replace('&egrave;', '%C3%A8', $str);
+			$response[] = $str;
+		}
+		header('Content-Type: application/json');
+		echo json_encode($response, JSON_PRETTY_PRINT);
+	}
+
 	$auth = apache_request_headers();
 	foreach ($auth as $header => $value)
 	{
@@ -41,6 +58,9 @@
 				{
 					$date=$_GET["date"];
 					getCompetitionsFromDate($date);
+				}
+				else {
+					getCompetitionsButeuses();
 				}
 				break;
 			default:

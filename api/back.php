@@ -1,6 +1,6 @@
 <?php 
     include("db_connect.php");
-
+    mb_internal_encoding('UTF-8');
     function verify_APIKey($apikey) {
         global $conn;
 		$query = "SELECT apikey FROM fam__apiauth LIMIT 1";
@@ -16,5 +16,22 @@
             }
         }
         return False;
+    }
+
+    function ifisset($table, $post) {
+        for($i = 0; $i < count($table); $i++) {
+            if(isset($post[$table[$i]]) == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isset_error($value) {
+        return array(
+            'status' => 0,
+            'status_message' =>'Bad '.$value.' request'
+        );
+    
     }
 ?>

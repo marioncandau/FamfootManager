@@ -1,6 +1,13 @@
-RewriteEngine On # Activer le module Rewrite
-RewriteRule ^dates/?$ dates.php [NC,L]
-RewriteRule ^[^/]+/([^/]+)$ compet.php?date=$1 [NC,L]
-RewriteRule ^[^/]+/id/(\d+)$ matchs.php?id=$1
-RewriteRule ^[^/]+/date/([^/]+)$ matchs.php?date=$1
-RewriteRule ^[^/]+/date/([^/]+)/compet/([^/]+)$ matchs.php?date=$1&compet=$2
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^dates/?$ dates.php
+RewriteRule ^compet/?$ compet.php
+RewriteRule ^[^/]+/journee/([^/]+)/?$ journee.php?compet=$1
+RewriteRule ^[^/]+/clubs/([^/]+)/?$ clubs.php?compet=$1
+RewriteRule ^[^/]+/clubs/([^/]+)/?$ clubs.php?compet=$1
+RewriteRule ^[^/]+/matchs/(\d+)/?$ matchs.php?id=$1 [L]
+RewriteRule ^[^/]+/matchs/([^/]+)/?$ matchs.php?date=$1
+RewriteRule ^[^/]+/matchs/date/([^/]+)/compet/([^/]+)/?$ matchs.php?date=$1&compet=$2
+RewriteRule ^[^/]+/compet/([^/]+)/?$ compet.php?date=$1
+RewriteRule ^[^/]+/buteuses/(\d+)/?$ buteuses.php?club=$1

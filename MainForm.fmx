@@ -25,12 +25,21 @@ object Form1: TForm1
       Size.PlatformDefault = False
       object Label1: TLabel
         Align = Client
-        Size.Width = 397.000000000000000000
+        Size.Width = 349.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
         Text = 'Famfoot Manager'
         TabOrder = 0
+      end
+      object SpeedButton1: TSpeedButton
+        Align = Left
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'backtoolbutton'
+        Text = 'SpeedButton1'
+        OnClick = SpeedButton1Click
       end
     end
   end
@@ -61,6 +70,8 @@ object Form1: TForm1
       StyleLookup = ''
       TabOrder = 0
       Text = 'Accueil'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object Button3: TButton
         Align = Top
         Size.Width = 397.000000000000000000
@@ -92,6 +103,8 @@ object Form1: TForm1
       StyleLookup = ''
       TabOrder = 0
       Text = 'Matchs'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object TabControl1: TTabControl
         Align = Client
         Size.Width = 397.000000000000000000
@@ -219,24 +232,15 @@ object Form1: TForm1
               Align = Client
               TabOrder = 0
               ReadOnly = True
-              Size.Width = 284.000000000000000000
+              Size.Width = 397.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
-            end
-            object Label2: TLabel
-              Align = Left
-              Margins.Left = 3.000000000000000000
-              Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
-              Size.Height = 41.000000000000000000
-              Size.PlatformDefault = False
-              Text = 'Comp'#233'tition'
-              TabOrder = 1
+              StyledSettings = [Family, Style, FontColor]
             end
           end
           object Layout6: TLayout
             Align = Top
-            Position.Y = 125.000000000000000000
+            Position.Y = 86.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 36.000000000000000000
             Size.PlatformDefault = False
@@ -245,15 +249,17 @@ object Form1: TForm1
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
               TabOrder = 0
-              Size.Width = 284.000000000000000000
+              Size.Width = 340.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
             end
             object Label3: TLabel
               Align = Left
+              StyledSettings = [Family, Style, FontColor]
               Margins.Left = 3.000000000000000000
               Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
+              Size.Width = 54.000000000000000000
               Size.Height = 36.000000000000000000
               Size.PlatformDefault = False
               Text = 'Score'
@@ -262,7 +268,7 @@ object Form1: TForm1
           end
           object Layout7: TLayout
             Align = Top
-            Position.Y = 80.000000000000000000
+            Position.Y = 41.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 45.000000000000000000
             Size.PlatformDefault = False
@@ -272,17 +278,19 @@ object Form1: TForm1
               Align = VertCenter
               TabOrder = 0
               ReadOnly = True
-              Position.X = 113.000000000000000000
+              Position.X = 57.000000000000000000
               Position.Y = 6.000000000000000000
-              Size.Width = 284.000000000000000000
+              Size.Width = 340.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
             end
             object Label4: TLabel
               Align = Left
+              StyledSettings = [Family, Style, FontColor]
               Margins.Left = 3.000000000000000000
               Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
+              Size.Width = 54.000000000000000000
               Size.Height = 45.000000000000000000
               Size.PlatformDefault = False
               Text = 'Match'
@@ -291,16 +299,17 @@ object Form1: TForm1
           end
           object Layout8: TLayout
             Align = Top
-            Position.Y = 211.000000000000000000
+            Position.Y = 172.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 94.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
             object Label5: TLabel
               Align = Left
+              StyledSettings = [Family, Style, FontColor]
               Margins.Left = 3.000000000000000000
               Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
+              Size.Width = 70.000000000000000000
               Size.Height = 94.000000000000000000
               Size.PlatformDefault = False
               Text = 'Buteuses '#233'quipe 1'
@@ -309,28 +318,30 @@ object Form1: TForm1
             object Memo1: TMemo
               Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
               DataDetectorTypes = []
+              StyledSettings = [Family, Style, FontColor]
               TextSettings.WordWrap = True
               Align = Client
-              Size.Width = 284.000000000000000000
+              Size.Width = 324.000000000000000000
               Size.Height = 94.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Viewport.Width = 276.000000000000000000
+              Viewport.Width = 316.000000000000000000
               Viewport.Height = 86.000000000000000000
             end
           end
           object Layout9: TLayout
             Align = Top
-            Position.Y = 305.000000000000000000
+            Position.Y = 266.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 104.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 4
             object Label6: TLabel
               Align = Left
+              StyledSettings = [Family, Style, FontColor]
               Margins.Left = 3.000000000000000000
               Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
+              Size.Width = 70.000000000000000000
               Size.Height = 104.000000000000000000
               Size.PlatformDefault = False
               Text = 'Buteuses '#233'quipe 2'
@@ -339,13 +350,14 @@ object Form1: TForm1
             object Memo2: TMemo
               Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
               DataDetectorTypes = []
+              StyledSettings = [Family, Style, FontColor]
               TextSettings.WordWrap = True
               Align = Client
-              Size.Width = 284.000000000000000000
+              Size.Width = 324.000000000000000000
               Size.Height = 104.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Viewport.Width = 276.000000000000000000
+              Viewport.Width = 316.000000000000000000
               Viewport.Height = 96.000000000000000000
             end
           end
@@ -361,7 +373,7 @@ object Form1: TForm1
           end
           object Layout10: TLayout
             Align = Top
-            Position.Y = 161.000000000000000000
+            Position.Y = 122.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
@@ -393,12 +405,14 @@ object Form1: TForm1
             Size.Width = 397.000000000000000000
             Size.Height = 39.000000000000000000
             Size.PlatformDefault = False
+            Visible = False
             TabOrder = 7
             object Label7: TLabel
               Align = Left
+              StyledSettings = [Family, Style, FontColor]
               Margins.Left = 3.000000000000000000
               Position.X = 3.000000000000000000
-              Size.Width = 110.000000000000000000
+              Size.Width = 78.000000000000000000
               Size.Height = 39.000000000000000000
               Size.PlatformDefault = False
               Text = 'Id'
@@ -409,9 +423,10 @@ object Form1: TForm1
               Align = Client
               TabOrder = 0
               ReadOnly = True
-              Size.Width = 284.000000000000000000
+              Size.Width = 316.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
+              StyledSettings = [Family, Style, FontColor]
             end
           end
         end
@@ -428,6 +443,8 @@ object Form1: TForm1
       StyleLookup = ''
       TabOrder = 0
       Text = 'Buteuses'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
       object TabControl3: TTabControl
         Align = Client
         Size.Width = 397.000000000000000000
@@ -457,6 +474,8 @@ object Form1: TForm1
           StyleLookup = ''
           TabOrder = 0
           Text = 'Accueil'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
           object Button5: TButton
             Align = Top
             Size.Width = 397.000000000000000000
@@ -495,9 +514,10 @@ object Form1: TForm1
           StyleLookup = ''
           TabOrder = 0
           Text = 'TabItemNouvelleButeuse'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
           object Layout12: TLayout
             Align = Top
-            Position.Y = 50.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
@@ -510,6 +530,7 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnChange = ComboBoxNewButCompetChange
             end
           end
           object Layout13: TLayout
@@ -519,7 +540,7 @@ object Form1: TForm1
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object ComboBoxNewButMatch: TComboBox
+            object ComboBoxNewButClub: TComboBox
               Align = Client
               Margins.Left = 3.000000000000000000
               Margins.Right = 3.000000000000000000
@@ -527,6 +548,7 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnChange = ComboBoxNewButClubChange
             end
           end
           object Layout14: TLayout
@@ -563,6 +585,33 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TextPrompt = 'Nom de la buteuse'
+              StyledSettings = [Family, Style, FontColor]
+            end
+          end
+          object Button8: TButton
+            Align = Bottom
+            Position.Y = 480.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 66.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            Text = 'Sauvegarder'
+          end
+          object Layout17: TLayout
+            Align = Top
+            Position.Y = 50.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object ComboBoxNewButJournee: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
             end
           end
           object Layout16: TLayout
@@ -582,32 +631,8 @@ object Form1: TForm1
               Size.Width = 391.000000000000000000
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
-              TextPrompt = 'Journ'#233'e'
-            end
-          end
-          object Button8: TButton
-            Align = Bottom
-            Position.Y = 480.000000000000000000
-            Size.Width = 397.000000000000000000
-            Size.Height = 66.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 6
-            Text = 'Sauvegarder'
-          end
-          object Layout17: TLayout
-            Align = Top
-            Size.Width = 397.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 2
-            object ComboBoxNewButDate: TComboBox
-              Align = Client
-              Margins.Left = 3.000000000000000000
-              Margins.Right = 3.000000000000000000
-              Size.Width = 391.000000000000000000
-              Size.Height = 32.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
+              TextPrompt = 'Nombre de buts'
+              StyledSettings = [Family, Style, FontColor]
             end
           end
         end
@@ -622,6 +647,8 @@ object Form1: TForm1
           StyleLookup = ''
           TabOrder = 0
           Text = 'TabItemModifierButeuse'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
         end
         object TabItemSupprimerButeuse: TTabItem
           CustomIcon = <
@@ -634,6 +661,8 @@ object Form1: TForm1
           StyleLookup = ''
           TabOrder = 0
           Text = 'TabItemSupprimerButeuse'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
         end
       end
     end
@@ -794,5 +823,80 @@ object Form1: TForm1
   object RESTResponse6: TRESTResponse
     Left = 248
     Top = 472
+  end
+  object RESTClient7: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 48
+    Top = 472
+  end
+  object RESTRequest7: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient7
+    Params = <>
+    Response = RESTResponse7
+    SynchronizedEvents = False
+    Left = 144
+    Top = 472
+  end
+  object RESTResponse7: TRESTResponse
+    Left = 256
+    Top = 480
+  end
+  object RESTClient8: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 56
+    Top = 480
+  end
+  object RESTRequest8: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient8
+    Params = <>
+    Response = RESTResponse8
+    SynchronizedEvents = False
+    Left = 152
+    Top = 480
+  end
+  object RESTResponse8: TRESTResponse
+    Left = 264
+    Top = 488
+  end
+  object RESTClient9: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'API'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Left = 64
+    Top = 488
+  end
+  object RESTRequest9: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient9
+    Params = <>
+    Response = RESTResponse9
+    SynchronizedEvents = False
+    Left = 160
+    Top = 488
+  end
+  object RESTResponse9: TRESTResponse
+    Left = 272
+    Top = 496
   end
 end
