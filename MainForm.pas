@@ -211,7 +211,7 @@ var
   jValue: TJSONObject;
   ArrayElement: TJSONValue;
 begin
-  RESTClient2.BaseURL := 'http://www.famfoot.fr/api/matchs/matchs/id/' +
+  RESTClient2.BaseURL := 'http://www.famfoot.fr/api/matchs/matchs/' +
     Edit6.Text;
 
   jValue := TJSONObject.Create;
