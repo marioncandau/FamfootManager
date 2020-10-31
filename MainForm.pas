@@ -148,7 +148,7 @@ begin
   else
     raise Exception.Create('Indice hors liste');
 
-  RESTClient1.BaseURL := 'http://www.famfoot.fr/api/matchs/matchs/' + id;
+  RESTClient1.BaseURL := 'https://www.famfoot.fr/api/matchs/matchs/' + id;
   RESTRequest1.Execute;
 
   if RESTResponse1.Status.Success then
@@ -211,7 +211,7 @@ var
   jValue: TJSONObject;
   ArrayElement: TJSONValue;
 begin
-  RESTClient2.BaseURL := 'http://www.famfoot.fr/api/matchs/matchs/' +
+  RESTClient2.BaseURL := 'https://www.famfoot.fr/api/matchs/matchs/' +
     Edit6.Text;
 
   jValue := TJSONObject.Create;
@@ -319,7 +319,7 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-  RESTClient6.BaseURL := 'http://www.famfoot.fr/api/compet/compet/';
+  RESTClient6.BaseURL := 'https://www.famfoot.fr/api/compet/';
 
   RESTRequest6.Execute;
 
@@ -346,7 +346,7 @@ var
 begin
   compet := compet.Replace('é', '%C3%A9');
 
-  RESTClient7.BaseURL := 'http://www.famfoot.fr/api/journee/journee/' + compet;
+  RESTClient7.BaseURL := 'https://www.famfoot.fr/api/journee/journee/' + compet;
 
   RESTRequest7.Execute;
 
@@ -375,7 +375,7 @@ begin
 
   compet := compet.Replace('é', '%C3%A9');
 
-  RESTClient8.BaseURL := 'http://www.famfoot.fr/api/clubs/clubs/' + compet;
+  RESTClient8.BaseURL := 'https://www.famfoot.fr/api/clubs/clubs/' + compet;
 
   RESTRequest8.Execute;
 
@@ -400,7 +400,7 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-  RESTClient9.BaseURL := 'http://www.famfoot.fr/api/buteuses/buteuses/' + IntToStr(club);
+  RESTClient9.BaseURL := 'https://www.famfoot.fr/api/buteuses/buteuses/' + IntToStr(club);
 
   RESTRequest9.Execute;
 
@@ -450,7 +450,7 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-  RESTClient4.BaseURL := 'http://www.famfoot.fr/api/compet/compet/' + date;
+  RESTClient4.BaseURL := 'https://www.famfoot.fr/api/compet/compet/' + date;
 
   RESTRequest4.Execute;
 
@@ -478,7 +478,7 @@ begin
   if assigned(matchids) then
     matchids.Clear;
 
-  RESTClient5.BaseURL := 'http://www.famfoot.fr/api/matchs/matchs/date/' + date
+  RESTClient5.BaseURL := 'https://www.famfoot.fr/api/matchs/matchs/date/' + date
     + '/compet/' + compet;
 
   RESTRequest5.Execute;

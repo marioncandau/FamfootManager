@@ -37,6 +37,7 @@
                     'status' => 1,
                     'id' => $row2['id'],
                     'status_message' =>'buteuse ajoutee'
+				);
             }
             else
             {

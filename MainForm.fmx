@@ -672,21 +672,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 40
-    Top = 224
+    SecureProtocols = [TLS11, TLS12]
+    Left = 48
+    Top = 72
   end
   object RESTRequest1: TRESTRequest
     Accept = '*/*'
     Client = RESTClient1
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 136
-    Top = 224
+    Left = 128
+    Top = 72
   end
   object RESTResponse1: TRESTResponse
     Left = 248
@@ -697,12 +704,13 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 40
-    Top = 272
+    SecureProtocols = [TLS11, TLS12]
+    Left = 48
+    Top = 128
   end
   object RESTResponse2: TRESTResponse
     Left = 248
@@ -712,35 +720,43 @@ object Form1: TForm1
     Accept = '*/*'
     Client = RESTClient2
     Method = rmPUT
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse2
     SynchronizedEvents = False
-    Left = 136
-    Top = 272
+    Left = 128
+    Top = 128
   end
   object RESTClient3: TRESTClient
     ContentType = 'application/json'
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
+    SecureProtocols = [TLS11, TLS12]
     Left = 40
-    Top = 320
+    Top = 184
   end
   object RESTClient4: TRESTClient
     ContentType = 'application/json'
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
+    SecureProtocols = [TLS11, TLS12]
     Left = 40
-    Top = 416
+    Top = 288
   end
   object RESTRequest3: TRESTRequest
     Accept = '*/*'
@@ -748,23 +764,29 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
     Response = RESTResponse3
     SynchronizedEvents = False
     Left = 136
-    Top = 320
+    Top = 184
   end
   object RESTRequest4: TRESTRequest
     Accept = '*/*'
     Client = RESTClient4
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse4
     SynchronizedEvents = False
     Left = 136
-    Top = 416
+    Top = 304
   end
   object RESTResponse3: TRESTResponse
     Left = 248
@@ -779,21 +801,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
+    SecureProtocols = [TLS11, TLS12]
     Left = 40
-    Top = 368
+    Top = 240
   end
   object RESTRequest5: TRESTRequest
     Accept = '*/*'
     Client = RESTClient5
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse5
     SynchronizedEvents = False
     Left = 136
-    Top = 368
+    Top = 248
   end
   object RESTResponse5: TRESTResponse
     Left = 248
@@ -804,21 +833,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
+    SecureProtocols = [TLS11, TLS12]
     Left = 40
-    Top = 464
+    Top = 336
   end
   object RESTRequest6: TRESTRequest
     Accept = '*/*'
     Client = RESTClient6
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse6
     SynchronizedEvents = False
     Left = 136
-    Top = 464
+    Top = 360
   end
   object RESTResponse6: TRESTResponse
     Left = 248
@@ -829,21 +865,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 48
-    Top = 472
+    SecureProtocols = [TLS11, TLS12]
+    Left = 40
+    Top = 392
   end
   object RESTRequest7: TRESTRequest
     Accept = '*/*'
     Client = RESTClient7
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse7
     SynchronizedEvents = False
-    Left = 144
-    Top = 472
+    Left = 136
+    Top = 408
   end
   object RESTResponse7: TRESTResponse
     Left = 256
@@ -854,21 +897,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 56
-    Top = 480
+    SecureProtocols = [TLS11, TLS12]
+    Left = 40
+    Top = 448
   end
   object RESTRequest8: TRESTRequest
     Accept = '*/*'
     Client = RESTClient8
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse8
     SynchronizedEvents = False
-    Left = 152
-    Top = 480
+    Left = 136
+    Top = 448
   end
   object RESTResponse8: TRESTResponse
     Left = 264
@@ -879,21 +929,28 @@ object Form1: TForm1
     Params = <
       item
         Kind = pkHTTPHEADER
-        Name = 'API'
+        Name = 'Api'
         Options = [poDoNotEncode]
         Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
       end>
-    Left = 64
-    Top = 488
+    SecureProtocols = [TLS11, TLS12]
+    Left = 32
+    Top = 496
   end
   object RESTRequest9: TRESTRequest
     Accept = '*/*'
     Client = RESTClient9
-    Params = <>
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
     Response = RESTResponse9
     SynchronizedEvents = False
-    Left = 160
-    Top = 488
+    Left = 144
+    Top = 496
   end
   object RESTResponse9: TRESTResponse
     Left = 272
