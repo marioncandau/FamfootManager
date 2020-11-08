@@ -49,7 +49,7 @@ object Form1: TForm1
     Size.Height = 546.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 1
     TabPosition = None
     Sizes = (
@@ -96,7 +96,7 @@ object Form1: TForm1
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -111,7 +111,7 @@ object Form1: TForm1
         Size.Height = 546.000000000000000000
         Size.PlatformDefault = False
         TabHeight = 49.000000000000000000
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 0
         TabPosition = None
         Sizes = (
@@ -119,17 +119,17 @@ object Form1: TForm1
           546s
           397s
           546s)
-        object TabItem1: TTabItem
+        object TabItemSelectMatch: TTabItem
           CustomIcon = <
             item
             end>
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
-          Text = 'TabItem1'
+          Text = 'TabItemSelectMatch'
           ExplicitSize.cx = 8.000000000000000000
           ExplicitSize.cy = 8.000000000000000000
           object Layout1: TLayout
@@ -208,11 +208,11 @@ object Form1: TForm1
             end
           end
         end
-        object TabItem2: TTabItem
+        object TabItemDisplayMatch: TTabItem
           CustomIcon = <
             item
             end>
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -436,7 +436,7 @@ object Form1: TForm1
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -451,7 +451,7 @@ object Form1: TForm1
         Size.Height = 546.000000000000000000
         Size.PlatformDefault = False
         TabHeight = 49.000000000000000000
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 0
         TabPosition = None
         Sizes = (
@@ -467,7 +467,7 @@ object Form1: TForm1
           CustomIcon = <
             item
             end>
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -483,6 +483,7 @@ object Form1: TForm1
             Size.PlatformDefault = False
             TabOrder = 0
             Text = 'Nouvelle'
+            OnClick = Button5Click
           end
           object Button6: TButton
             Align = Top
@@ -507,7 +508,7 @@ object Form1: TForm1
           CustomIcon = <
             item
             end>
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -566,6 +567,7 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnChange = ComboBoxNewButButeuseChange
             end
           end
           object Layout15: TLayout
@@ -574,6 +576,7 @@ object Form1: TForm1
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
+            Visible = False
             TabOrder = 5
             object Edit4: TEdit
               Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -596,6 +599,7 @@ object Form1: TForm1
             Size.PlatformDefault = False
             TabOrder = 6
             Text = 'Sauvegarder'
+            OnClick = Button8Click
           end
           object Layout17: TLayout
             Align = Top
@@ -616,7 +620,7 @@ object Form1: TForm1
           end
           object Layout16: TLayout
             Align = Top
-            Position.Y = 250.000000000000000000
+            Position.Y = 200.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
@@ -955,5 +959,38 @@ object Form1: TForm1
   object RESTResponse9: TRESTResponse
     Left = 272
     Top = 496
+  end
+  object RESTRequest10: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient10
+    Method = rmPOST
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Response = RESTResponse10
+    SynchronizedEvents = False
+    Left = 136
+    Top = 136
+  end
+  object RESTClient10: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    SecureProtocols = [TLS11, TLS12]
+    Left = 56
+    Top = 136
+  end
+  object RESTResponse10: TRESTResponse
+    Left = 256
+    Top = 280
   end
 end

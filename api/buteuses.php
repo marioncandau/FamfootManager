@@ -4,10 +4,27 @@
 	include("back.php");
 	$request_method = $_SERVER["REQUEST_METHOD"];
 
-	function getButeuses($club)
+	function getButeuses()
 	{
 		global $conn;
-		$query = "SELECT DISTINCT * FROM fam__buteuses WHERE club = ".$club;
+		$query = "SELECT DISTINCT nom FROM fam__buteuses";
+		$response = array();
+		$result = mysqli_query($conn, $query);
+		while($row = mysqli_fetch_assoc($result))
+		{
+			$str = str_replace('&eacute;', '%C3%A9', $row);
+			$str = str_replace('&agrave;', '%C3%A0', $str);
+			$str = str_replace('&egrave;', '%C3%A8', $str);
+			$response[] = $str;
+		}
+		header('Content-Type: application/json');
+		echo json_encode($response, JSON_PRETTY_PRINT);
+	}
+
+	function getButeusesFromClub($club)
+	{
+		global $conn;
+		$query = "SELECT * FROM fam__buteuses WHERE club = ".$club;
 		$response = array();
 		$result = mysqli_query($conn, $query);
 		while($row = mysqli_fetch_assoc($result))
@@ -22,6 +39,7 @@
 	{
 		global $conn;
 		// $_PUT = array();
+		$_POST = json_decode(file_get_contents('php://input'), true);
 		if(ifisset(['club', 'nom', 'championnat'], $_POST)) {
             $club = intval($_POST["club"]);
             $championnat = mysqli_real_escape_string($conn,htmlspecialchars($_POST["championnat"]));
@@ -47,13 +65,12 @@
                 );
                 
             }
-            
-            header('Content-Type: application/json');
-            echo json_encode($response);
         }
         else {
             $response = isset_error('POST');
-        }
+		}
+		header('Content-Type: application/json');
+        echo json_encode($response);
 	}
 
 	$auth = apache_request_headers();
@@ -73,16 +90,20 @@
 				if(!empty($_GET["club"]))
 				{
 					$club=$_GET["club"];
-					getButeuses($club);
+					getButeusesFromClub($club);
                 }
                 else if(!empty($_GET["id"]))
 				{
 					$id=$_GET["id"];
 					getButeuse($id);
 				}
+				else {
+					getButeuses();
+				}
                 break;
-            case 'POST':
-                addButeuse();
+			case 'POST':
+				addButeuse();
+				break;
 			default:
 				// Invalid Request Method
 				header("HTTP/1.0 405 Method Not Allowed");
