@@ -73,6 +73,43 @@
         echo json_encode($response);
 	}
 
+	function editButeuse($id)
+	{
+		global $conn;
+		// $_PUT = array();
+		$_PUT = json_decode(file_get_contents('php://input'), true);
+		if(ifisset(['club', 'nom'], $_PUT)) {
+            $club = intval($_PUT["club"]);
+            $nom = mysqli_real_escape_string($conn,htmlspecialchars($_PUT["nom"]));
+            $query="UPDATE fam__buteuses SET nom = '".$nom."', club = ".$club." WHERE id = ".$id;
+            
+            if(mysqli_query($conn, $query))
+            {
+                $q2 = "SELECT id FROM fam__buteuses WHERE nom = '".$nom."'";
+                $r2 = mysqli_query($conn, $q2);
+                $row2 = mysqli_fetch_assoc($r2);
+                $response=array(
+                    'status' => 1,
+                    'id' => $row2['id'],
+                    'status_message' =>'buteuse modifiee'
+				);
+            }
+            else
+            {
+                $response=array(
+                    'status' => 0,
+                    'status_message' =>'Echec de la modification de buteuse. '. mysqli_error($conn)
+                );
+                
+            }
+        }
+        else {
+            $response = isset_error('PUT');
+		}
+		header('Content-Type: application/json');
+        echo json_encode($response);
+	}
+
 	$auth = apache_request_headers();
 	foreach ($auth as $header => $value)
 	{
@@ -103,6 +140,13 @@
                 break;
 			case 'POST':
 				addButeuse();
+				break;
+			case 'PUT':
+				if(!empty($_GET["id"]))
+				{
+					$id=$_GET["id"];
+					editButeuse($id);
+				}
 				break;
 			default:
 				// Invalid Request Method

@@ -14,5 +14,7 @@ RewriteRule ^[^/]+/matchs/([^/]+)/?$ matchs.php?date=$1
 RewriteRule ^[^/]+/matchs/date/([^/]+)/compet/([^/]+)/?$ matchs.php?date=$1&compet=$2
 RewriteRule ^[^/]+/compet/([^/]+)/?$ compet.php?date=$1
 RewriteRule ^[^/]+/buteuses/club/(\d+)/?$ buteuses.php?club=$1
-RewriteRule ^[^/]+/buteuse/id/(\d+)/?$ buteuses.php?id=$1
+RewriteRule ^[^/]+/buteuse/(\d+)/?$ buteuses.php?id=$1
+RewriteRule ^[^/]+/buts/buteuse/(\d+)/journee/(\d+)?$ buts.php?buteuse=$1&journee=$2
 RewriteRule ^[^/]+/buts/buteuse/(\d+)/?$ buts.php?buteuse=$1
+RewriteRule ^[^/]+/but/(\d+)/?$ buts.php?id=$1

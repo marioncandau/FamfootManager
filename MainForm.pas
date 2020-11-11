@@ -105,6 +105,23 @@ type
     RESTRequest10: TRESTRequest;
     RESTClient10: TRESTClient;
     RESTResponse10: TRESTResponse;
+    Layout18: TLayout;
+    ComboBox4: TComboBox;
+    Layout19: TLayout;
+    ComboBox5: TComboBox;
+    Layout20: TLayout;
+    ComboBox6: TComboBox;
+    Layout22: TLayout;
+    Edit8: TEdit;
+    Layout23: TLayout;
+    ComboBox7: TComboBox;
+    Button9: TButton;
+    RESTClient11: TRESTClient;
+    RESTRequest11: TRESTRequest;
+    RESTResponse11: TRESTResponse;
+    RESTClient12: TRESTClient;
+    RESTRequest12: TRESTRequest;
+    RESTResponse12: TRESTResponse;
     procedure FormShow(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure ComboBox2Change(Sender: TObject);
@@ -120,6 +137,12 @@ type
     procedure ComboBoxNewButButeuseChange(Sender: TObject);
     procedure Button8Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure ComboBox4Change(Sender: TObject);
+    procedure ComboBox5Change(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure ComboBox6Change(Sender: TObject);
   private
     matchids: TStringList;
     clubsids: TStringList;
@@ -128,14 +151,17 @@ type
     procedure RequestCompet(date: string);
     procedure RequestMatch(date, compet: string);
     procedure RequestCompetButeuse;
-    procedure RequestJourneeButeuse(compet: string);
-    procedure RequestClubsButeuse(compet: string);
-    procedure RequestButeuses(club: Integer);
+    function RequestJourneeButeuse(compet: string): TStringList;
+    function RequestClubsButeuse(compet: string): TStringList;
+    function RequestButeuses(club: Integer): TStringList;
     procedure UpdateMatch(Matchid: string; forfait1, forfait2: boolean;
       buteuses1, buteuses2, score: string);
     procedure AddBut(compet, journee: string; indexClub: Integer;
       buteuse: string; indexButeuse: Integer; buts: string;
       isNewButeuse: boolean);
+    procedure EditBut(indexButeuse: Integer; nomButeuse: string;
+      indexClub: Integer; journee: string; buts: string);
+    function RequestNbButs(indexButeuse: Integer; journee: string): Integer;
 
   public
     { Déclarations publiques }
@@ -293,6 +319,18 @@ begin
   SpeedButton1.Visible := true;
 end;
 
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+  TabControl3.ActiveTab := TabItemModifierButeuse;
+  SpeedButton1.Visible := true;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+  TabControl3.ActiveTab := TabItemSupprimerButeuse;
+  SpeedButton1.Visible := true;
+end;
+
 procedure TForm1.AddBut(compet, journee: string; indexClub: Integer;
   buteuse: string; indexButeuse: Integer; buts: string; isNewButeuse: boolean);
 var
@@ -367,6 +405,69 @@ begin
 
 end;
 
+procedure TForm1.EditBut(indexButeuse: Integer; nomButeuse: string;
+  indexClub: Integer; journee: string; buts: string);
+var
+  jValue: TJSONObject;
+  ArrayElement: TJSONValue;
+  clubID, buteuseID: string;
+begin
+
+  clubID := clubsids.Strings[indexClub];
+  buteuseID := buteusesids.Strings[indexButeuse];
+
+  RESTClient11.BaseURL := 'https://www.famfoot.fr/api/buteuse/' + buteuseID;
+  jValue := TJSONObject.Create;
+  try
+    jValue.AddPair('club', clubID);
+    jValue.AddPair('nom', nomButeuse);
+
+    RESTRequest11.ClearBody;
+    RESTRequest11.AddBody(jValue);
+    RESTRequest11.Execute;
+  finally
+    jValue.Free;
+  end;
+
+  if RESTResponse11.Status.Success then
+  begin
+    ArrayElement := RESTResponse11.JSONValue;
+    if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
+      ShowMessage('error ' + ArrayElement.FindValue('status_message').ToString)
+  end
+  else
+    raise Exception.Create(IntToStr(RESTResponse11.StatusCode) + ' - ' +
+      RESTResponse11.StatusText);
+
+  RESTClient10.BaseURL := 'https://www.famfoot.fr/api/but';
+  // POST buteuse : id_club,  nom de la buteuse, nom du championnat
+  jValue := TJSONObject.Create;
+  try
+    jValue.AddPair('journee', journee);
+    jValue.AddPair('buteuse', buteuseID);
+    jValue.AddPair('nbButs', buts);
+
+    RESTRequest10.ClearBody;
+    RESTRequest10.AddBody(jValue);
+    RESTRequest10.Execute;
+  finally
+    jValue.Free;
+  end;
+
+  if RESTResponse10.Status.Success then
+  begin
+    ArrayElement := RESTResponse10.JSONValue;
+    if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
+      ShowMessage('error ' + ArrayElement.FindValue('status_message').ToString)
+    else
+      TabControl3.ActiveTab := TabItemButeusesAccueil;
+  end
+  else
+    raise Exception.Create(IntToStr(RESTResponse10.StatusCode) + ' - ' +
+      RESTResponse10.StatusText);
+
+end;
+
 procedure TForm1.Button8Click(Sender: TObject);
 begin
   if ComboBoxNewButButeuse.Selected.Text <> 'Nouvelle' then
@@ -378,6 +479,12 @@ begin
     AddBut(ComboBoxNewButCompet.Selected.Text,
       ComboBoxNewButJournee.Selected.Text, ComboBoxNewButClub.Selected.Index,
       Edit4.Text, 0, Edit5.Text, true);
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+  EditBut(ComboBox6.Selected.Index, ComboBox6.Selected.Text, ComboBox5.Selected.
+    Index, ComboBox7.Selected.Text, Edit8.Text);
 end;
 
 procedure TForm1.ComboBox1Change(Sender: TObject);
@@ -393,6 +500,61 @@ begin
   RequestMatch(ComboBox1.Selected.Text, ComboBox2.Selected.Text);
 end;
 
+procedure TForm1.ComboBox4Change(Sender: TObject);
+var
+  journee, clubs: TStringList;
+  I: Integer;
+begin
+  journee := RequestJourneeButeuse(ComboBox4.Selected.Text);
+  try
+    ComboBox7.Clear;
+    for I := 0 to journee.Count - 1 do
+      ComboBox7.Items.Add(journee.Strings[I]);
+  finally
+    journee.Free;
+  end;
+
+  clubs := RequestClubsButeuse(ComboBox4.Selected.Text);
+  try
+    ComboBox5.Clear;
+    for I := 0 to clubs.Count - 1 do
+      ComboBox5.Items.Add(clubs.Strings[I]);
+  finally
+    clubs.Free;
+  end;
+end;
+
+procedure TForm1.ComboBox5Change(Sender: TObject);
+var
+  buteuses: TStringList;
+  I: TObject;
+begin
+  ComboBox6.Items.Clear;
+
+  buteuses := RequestButeuses
+    (StrToInt(clubsids.Strings[ComboBox5.Selected.Index]));
+  try
+    for I := 0 to buteuses.Count - 1 do
+      ComboBox6.Items.Add(buteuses.Strings[I]);
+  finally
+    buteuses.Free;
+  end;
+
+end;
+
+procedure TForm1.ComboBox6Change(Sender: TObject);
+var
+  nbButs : Integer;
+begin
+  if (ComboBox6.Selected.Text <> '') and (ComboBox7.Selected.Text <> '') then
+    Edit8.Text := IntToStr(RequestNbButs(ComboBox6.Selected.Index, ComboBox7.Selected.Text));
+end;
+
+function TForm1.RequestNbButs(indexButeuse: Integer; journee: string): Integer;
+begin
+
+end;
+
 procedure TForm1.ComboBoxNewButButeuseChange(Sender: TObject);
 begin
   if Assigned(ComboBoxNewButButeuse.Selected) then
@@ -403,15 +565,47 @@ begin
 end;
 
 procedure TForm1.ComboBoxNewButClubChange(Sender: TObject);
+var
+  buteuses: TStringList;
+  I: TObject;
 begin
-  RequestButeuses(StrToInt(clubsids.Strings
-    [ComboBoxNewButClub.Selected.Index]));
+  ComboBoxNewButButeuse.Items.Clear;
+
+  ComboBoxNewButButeuse.Items.Add('Nouvelle');
+
+  buteuses := RequestButeuses
+    (StrToInt(clubsids.Strings[ComboBoxNewButClub.Selected.Index]));
+  try
+    for I := 0 to buteuses.Count - 1 do
+      ComboBoxNewButButeuse.Items.Add(buteuses.Strings[I]);
+  finally
+    buteuses.Free;
+  end;
+
 end;
 
 procedure TForm1.ComboBoxNewButCompetChange(Sender: TObject);
+var
+  journee, clubs: TStringList;
+  I: Integer;
 begin
-  RequestJourneeButeuse(ComboBoxNewButCompet.Selected.Text);
-  RequestClubsButeuse(ComboBoxNewButCompet.Selected.Text);
+  journee := RequestJourneeButeuse(ComboBoxNewButCompet.Selected.Text);
+  try
+    ComboBoxNewButJournee.Clear;
+    for I := 0 to journee.Count - 1 do
+      ComboBoxNewButJournee.Items.Add(journee.Strings[I]);
+  finally
+    journee.Free;
+  end;
+
+  clubs := RequestClubsButeuse(ComboBoxNewButCompet.Selected.Text);
+  try
+    ComboBoxNewButClub.Clear;
+    for I := 0 to clubs.Count - 1 do
+      ComboBoxNewButClub.Items.Add(clubs.Strings[I]);
+  finally
+    clubs.Free;
+  end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -462,12 +656,13 @@ begin
       RESTResponse6.StatusText);
 end;
 
-procedure TForm1.RequestJourneeButeuse(compet: string);
+function TForm1.RequestJourneeButeuse(compet: string): TStringList;
 var
   jValue: TJSONValue;
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
+  Result := TStringList.Create;
   ComboBoxNewButJournee.Items.Clear;
   compet := compet.Replace('é', '%C3%A9');
 
@@ -481,7 +676,7 @@ begin
     jsonarray := jValue as TJSONArray;
     for ArrayElement in jsonarray do
     begin
-      ComboBoxNewButJournee.Items.Add(ArrayElement.ToString);
+      Result.Add(ArrayElement.ToString);
     end;
   end
   else
@@ -489,13 +684,13 @@ begin
       RESTResponse7.StatusText);
 end;
 
-procedure TForm1.RequestClubsButeuse(compet: string);
+function TForm1.RequestClubsButeuse(compet: string): TStringList;
 var
   jValue: TJSONValue;
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
-  ComboBoxNewButClub.Items.Clear;
+  Result := TStringList.Create;
   if Assigned(clubsids) then
     clubsids.Clear;
 
@@ -511,8 +706,7 @@ begin
     jsonarray := jValue as TJSONArray;
     for ArrayElement in jsonarray do
     begin
-      ComboBoxNewButClub.Items.Add(ArrayElement.FindValue('club')
-        .ToString.Replace('"', ''));
+      Result.Add(ArrayElement.FindValue('club').ToString.Replace('"', ''));
       clubsids.Add(ArrayElement.FindValue('contact').ToString.Replace('"', ''))
     end;
   end
@@ -521,12 +715,13 @@ begin
       RESTResponse8.StatusText);
 end;
 
-procedure TForm1.RequestButeuses(club: Integer);
+function TForm1.RequestButeuses(club: Integer): TStringList;
 var
   jValue: TJSONValue;
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
+  Result := TStringList.Create;
   ComboBoxNewButButeuse.Items.Clear;
   if Assigned(buteusesids) then
     buteusesids.Clear;
@@ -542,6 +737,7 @@ begin
     jsonarray := jValue as TJSONArray;
     for ArrayElement in jsonarray do
     begin
+      Result.Add(ArrayElement.FindValue('nom').ToString.Replace('"', ''));
       ComboBoxNewButButeuse.Items.Add(ArrayElement.FindValue('nom')
         .ToString.Replace('"', ''));
       buteusesids.Add(ArrayElement.FindValue('id').ToString.Replace('"', ''))
