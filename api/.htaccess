@@ -8,12 +8,13 @@ RewriteRule ^buteuses/?$ buteuses.php
 RewriteRule ^but/?$ buts.php
 RewriteRule ^[^/]+/journee/([^/]+)/?$ journee.php?compet=$1
 RewriteRule ^[^/]+/clubs/([^/]+)/?$ clubs.php?compet=$1
-RewriteRule ^[^/]+/clubs/([^/]+)/?$ clubs.php?compet=$1
+RewriteRule ^[^/]+/club/buteuse/(\d+)/?$ clubs.php?buteuse=$1
 RewriteRule ^[^/]+/matchs/(\d+)/?$ matchs.php?id=$1 [L]
 RewriteRule ^[^/]+/matchs/([^/]+)/?$ matchs.php?date=$1
 RewriteRule ^[^/]+/matchs/date/([^/]+)/compet/([^/]+)/?$ matchs.php?date=$1&compet=$2
 RewriteRule ^[^/]+/compet/([^/]+)/?$ compet.php?date=$1
 RewriteRule ^[^/]+/buteuses/club/(\d+)/?$ buteuses.php?club=$1
+RewriteRule ^[^/]+/buteuses/compet/([^/]+)/?$ buteuses.php?compet=$1
 RewriteRule ^[^/]+/buteuse/(\d+)/?$ buteuses.php?id=$1
 RewriteRule ^[^/]+/buts/buteuse/(\d+)/journee/(\d+)?$ buts.php?buteuse=$1&journee=$2
 RewriteRule ^[^/]+/buts/buteuse/(\d+)/?$ buts.php?buteuse=$1

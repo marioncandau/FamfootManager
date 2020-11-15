@@ -29,7 +29,21 @@
 		$result = mysqli_query($conn, $query);
 		while($row = mysqli_fetch_assoc($result))
 		{
-			$response[] = array_map("utf8_encode", $row);
+			$response[] = $row;
+		}
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}
+	
+	function getButeusesFromCompet($compet)
+	{
+		global $conn;
+		$query = "SELECT * FROM fam__buteuses WHERE championnat = '".$compet."'";
+		$response = array();
+		$result = mysqli_query($conn, $query);
+		while($row = mysqli_fetch_assoc($result))
+		{
+			$response[] = $row;
 		}
 		header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -128,6 +142,11 @@
 				{
 					$club=$_GET["club"];
 					getButeusesFromClub($club);
+				}
+				else if(!empty($_GET["compet"]))
+				{
+					$compet=$_GET["compet"];
+					getButeusesFromCompet($compet);
                 }
                 else if(!empty($_GET["id"]))
 				{

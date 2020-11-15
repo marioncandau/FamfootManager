@@ -25,6 +25,17 @@
 		echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 	}
 
+	function getClubFromButeuse($buteuse)
+	{
+		global $conn;
+		$query = "SELECT club FROM fam__buteuses WHERE id = ".$buteuse;
+		$result = mysqli_query($conn, $query);
+		$row = mysqli_fetch_assoc($result);
+		$response = $row;
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+	}
+
 	$auth = apache_request_headers();
 	foreach ($auth as $header => $value)
 	{
@@ -44,6 +55,11 @@
 					$compet=$_GET["compet"];
 					getClubs($compet);
 				}
+				else if(!empty($_GET["buteuse"]))
+				{
+					$buteuse=$_GET["buteuse"];
+					getClubFromButeuse($buteuse);
+				} 
 				break;
 			default:
 				// Invalid Request Method

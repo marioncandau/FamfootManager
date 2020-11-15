@@ -661,7 +661,7 @@ object Form1: TForm1
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
-            object ComboBox4: TComboBox
+            object ComboBoxModifierButeuseCompet: TComboBox
               Align = Client
               Margins.Left = 3.000000000000000000
               Margins.Right = 3.000000000000000000
@@ -669,52 +669,51 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
-              OnChange = ComboBox4Change
+              OnChange = ComboBoxModifierButeuseCompetChange
             end
           end
           object Layout19: TLayout
-            Align = Top
-            Position.Y = 100.000000000000000000
-            Size.Width = 397.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object ComboBox5: TComboBox
-              Align = Client
-              Margins.Left = 3.000000000000000000
-              Margins.Right = 3.000000000000000000
-              Size.Width = 391.000000000000000000
-              Size.Height = 32.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              OnChange = ComboBox5Change
-            end
-          end
-          object Layout20: TLayout
-            Align = Top
-            Position.Y = 150.000000000000000000
-            Size.Width = 397.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 0
-            object ComboBox6: TComboBox
-              Align = Client
-              Margins.Left = 3.000000000000000000
-              Margins.Right = 3.000000000000000000
-              Size.Width = 391.000000000000000000
-              Size.Height = 32.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              OnChange = ComboBox6Change
-            end
-          end
-          object Layout22: TLayout
             Align = Top
             Position.Y = 200.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 4
+            TabOrder = 1
+            object ComboBoxModifierButeuseClubs: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+          object Layout20: TLayout
+            Align = Top
+            Position.Y = 50.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object ComboBoxModifierButeuseButeuse: TComboBox
+              Align = Client
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              OnChange = ComboBoxModifierButeuseButeuseChange
+            end
+          end
+          object Layout22: TLayout
+            Align = Top
+            Position.Y = 250.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
             object Edit8: TEdit
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Client
@@ -731,12 +730,12 @@ object Form1: TForm1
           end
           object Layout23: TLayout
             Align = Top
-            Position.Y = 50.000000000000000000
+            Position.Y = 150.000000000000000000
             Size.Width = 397.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
-            object ComboBox7: TComboBox
+            object ComboBoxModifierButeuseJournee: TComboBox
               Align = Client
               Margins.Left = 3.000000000000000000
               Margins.Right = 3.000000000000000000
@@ -744,7 +743,7 @@ object Form1: TForm1
               Size.Height = 32.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
-              OnChange = ComboBox6Change
+              OnChange = ComboBoxModifierButeuseButeuseChange
             end
           end
           object Button9: TButton
@@ -753,9 +752,29 @@ object Form1: TForm1
             Size.Width = 397.000000000000000000
             Size.Height = 66.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 6
+            TabOrder = 7
             Text = 'Modifier'
             OnClick = Button9Click
+          end
+          object Layout21: TLayout
+            Align = Top
+            Position.Y = 100.000000000000000000
+            Size.Width = 397.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            object EditModifierButeuseNom: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Client
+              TabOrder = 0
+              Margins.Left = 3.000000000000000000
+              Margins.Right = 3.000000000000000000
+              Size.Width = 391.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Nom buteuse'
+              StyledSettings = [Family, Style, FontColor]
+            end
           end
         end
         object TabItemSupprimerButeuse: TTabItem
@@ -804,8 +823,8 @@ object Form1: TForm1
     Top = 72
   end
   object RESTResponse1: TRESTResponse
-    Left = 248
-    Top = 224
+    Left = 240
+    Top = 80
   end
   object RESTClient2: TRESTClient
     ContentType = 'application/json'
@@ -821,8 +840,8 @@ object Form1: TForm1
     Top = 128
   end
   object RESTResponse2: TRESTResponse
-    Left = 248
-    Top = 272
+    Left = 240
+    Top = 176
   end
   object RESTRequest2: TRESTRequest
     Accept = '*/*'
@@ -1094,8 +1113,8 @@ object Form1: TForm1
     Top = 136
   end
   object RESTResponse10: TRESTResponse
-    Left = 256
-    Top = 280
+    Left = 240
+    Top = 224
   end
   object RESTClient11: TRESTClient
     ContentType = 'application/json'
@@ -1127,8 +1146,8 @@ object Form1: TForm1
     Top = 144
   end
   object RESTResponse11: TRESTResponse
-    Left = 264
-    Top = 288
+    Left = 248
+    Top = 272
   end
   object RESTClient12: TRESTClient
     ContentType = 'application/json'
@@ -1159,7 +1178,71 @@ object Form1: TForm1
     Top = 80
   end
   object RESTResponse12: TRESTResponse
-    Left = 256
-    Top = 232
+    Left = 240
+    Top = 128
+  end
+  object RESTClient13: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    SecureProtocols = [TLS11, TLS12]
+    Left = 40
+    Top = 504
+  end
+  object RESTRequest13: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient13
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Response = RESTResponse13
+    SynchronizedEvents = False
+    Left = 152
+    Top = 504
+  end
+  object RESTResponse13: TRESTResponse
+    Left = 280
+    Top = 504
+  end
+  object RESTClient14: TRESTClient
+    ContentType = 'application/json'
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    SecureProtocols = [TLS11, TLS12]
+    Left = 64
+    Top = 88
+  end
+  object RESTRequest14: TRESTRequest
+    Accept = '*/*'
+    Client = RESTClient14
+    Params = <
+      item
+        Kind = pkHTTPHEADER
+        Name = 'Api'
+        Options = [poDoNotEncode]
+        Value = '834ce99342f42d2de23dcbaab32ade5ac01441cab2db8d61c4df0a34d11a2c51'
+      end>
+    Response = RESTResponse14
+    SynchronizedEvents = False
+    Left = 144
+    Top = 88
+  end
+  object RESTResponse14: TRESTResponse
+    Left = 248
+    Top = 136
   end
 end
