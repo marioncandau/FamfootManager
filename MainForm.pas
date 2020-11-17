@@ -326,12 +326,23 @@ end;
 procedure TForm1.Button5Click(Sender: TObject);
 begin
   TabControl3.ActiveTab := TabItemNouvelleButeuse;
+  self.ComboBoxNewButCompet.ItemIndex := -1;
+  self.ComboBoxNewButClub.ItemIndex := -1;
+  self.ComboBoxNewButButeuse.ItemIndex := -1;
+  self.ComboBoxNewButJournee.ItemIndex := -1;
+  Edit5.Text := '';
   SpeedButton1.Visible := true;
 end;
 
 procedure TForm1.Button6Click(Sender: TObject);
 begin
   TabControl3.ActiveTab := TabItemModifierButeuse;
+  self.ComboBoxModifierButeuseCompet.ItemIndex := -1;
+  self.ComboBoxModifierButeuseClubs.ItemIndex := -1;
+  self.ComboBoxModifierButeuseButeuse.ItemIndex := -1;
+  self.ComboBoxModifierButeuseJournee.ItemIndex := -1;
+  self.EditModifierButeuseNom.Text := '';
+  self.Edit8.Text := '';
   SpeedButton1.Visible := true;
 end;
 
@@ -426,55 +437,66 @@ begin
   clubID := clubsids.Strings[indexClub];
   buteuseID := buteusesids.Strings[indexButeuse];
 
-  RESTClient11.BaseURL := 'https://www.famfoot.fr/api/buteuse/' + buteuseID;
-  jValue := TJSONObject.Create;
-  try
-    jValue.AddPair('club', clubID);
-    jValue.AddPair('nom', nomButeuse);
-
-    RESTRequest11.ClearBody;
-    RESTRequest11.AddBody(jValue);
-    RESTRequest11.Execute;
-  finally
-    jValue.Free;
-  end;
-
-  if RESTResponse11.Status.Success then
+  if nomButeuse <> '' then
   begin
-    ArrayElement := RESTResponse11.JSONValue;
-    if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
-      ShowMessage('error ' + ArrayElement.FindValue('status_message').ToString)
-  end
-  else
-    raise Exception.Create(IntToStr(RESTResponse11.StatusCode) + ' - ' +
-      RESTResponse11.StatusText);
+    RESTClient11.BaseURL := 'https://www.famfoot.fr/api/buteuse/buteuse/' +
+      buteuseID;
+    jValue := TJSONObject.Create;
+    try
+      jValue.AddPair('club', clubID);
+      jValue.AddPair('nom', nomButeuse);
 
-  RESTClient10.BaseURL := 'https://www.famfoot.fr/api/but';
-  // POST buteuse : id_club,  nom de la buteuse, nom du championnat
-  jValue := TJSONObject.Create;
-  try
-    jValue.AddPair('journee', journee);
-    jValue.AddPair('buteuse', buteuseID);
-    jValue.AddPair('nbButs', buts);
+      RESTRequest11.ClearBody;
+      RESTRequest11.AddBody(jValue);
+      RESTRequest11.Execute;
+    finally
+      jValue.Free;
+    end;
 
-    RESTRequest10.ClearBody;
-    RESTRequest10.AddBody(jValue);
-    RESTRequest10.Execute;
-  finally
-    jValue.Free;
-  end;
-
-  if RESTResponse10.Status.Success then
-  begin
-    ArrayElement := RESTResponse10.JSONValue;
-    if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
-      ShowMessage('error ' + ArrayElement.FindValue('status_message').ToString)
+    if RESTResponse11.Status.Success then
+    begin
+      ArrayElement := RESTResponse11.JSONValue;
+      if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
+        ShowMessage('error ' + ArrayElement.FindValue
+          ('status_message').ToString)
+    end
     else
-      TabControl3.ActiveTab := TabItemButeusesAccueil;
+      raise Exception.Create(IntToStr(RESTResponse11.StatusCode) + ' - ' +
+        RESTResponse11.StatusText);
+  end;
+
+  if journee <> '' then
+  begin
+    RESTClient10.BaseURL := 'https://www.famfoot.fr/api/but';
+    // POST buteuse : id_club,  nom de la buteuse, nom du championnat
+    jValue := TJSONObject.Create;
+    try
+      jValue.AddPair('journee', journee);
+      jValue.AddPair('buteuse', buteuseID);
+      jValue.AddPair('nbButs', buts);
+
+      RESTRequest10.ClearBody;
+      RESTRequest10.AddBody(jValue);
+      RESTRequest10.Execute;
+    finally
+      jValue.Free;
+    end;
+
+    if RESTResponse10.Status.Success then
+    begin
+      ArrayElement := RESTResponse10.JSONValue;
+      if StrToInt(ArrayElement.FindValue('status').ToString) = 0 then
+        ShowMessage('error ' + ArrayElement.FindValue
+          ('status_message').ToString)
+      else
+        TabControl3.ActiveTab := TabItemButeusesAccueil;
+    end
+    else
+      raise Exception.Create(IntToStr(RESTResponse10.StatusCode) + ' - ' +
+        RESTResponse10.StatusText);
   end
   else
-    raise Exception.Create(IntToStr(RESTResponse10.StatusCode) + ' - ' +
-      RESTResponse10.StatusText);
+    TabControl3.ActiveTab := TabItemButeusesAccueil;
 
 end;
 
@@ -492,11 +514,27 @@ begin
 end;
 
 procedure TForm1.Button9Click(Sender: TObject);
+var
+  selectedbuteuse: string;
 begin
-  EditBut(ComboBoxModifierButeuseButeuse.Selected.Index,
-    ComboBoxModifierButeuseButeuse.Selected.Text,
-    ComboBoxModifierButeuseClubs.Selected.Index,
-    ComboBoxModifierButeuseJournee.Selected.Text, Edit8.Text);
+  selectedbuteuse := self.ComboBoxModifierButeuseButeuse.Selected.Text;
+  if self.EditModifierButeuseNom.Text <> selectedbuteuse then
+  begin
+    if Assigned(ComboBoxModifierButeuseJournee.Selected) then
+      EditBut(ComboBoxModifierButeuseButeuse.Selected.Index,
+        EditModifierButeuseNom.Text, ComboBoxModifierButeuseClubs.ItemIndex,
+        ComboBoxModifierButeuseJournee.Selected.Text, Edit8.Text)
+    else
+      EditBut(ComboBoxModifierButeuseButeuse.Selected.Index,
+        EditModifierButeuseNom.Text,
+        ComboBoxModifierButeuseClubs.ItemIndex, '', '');
+  end
+  else
+  begin
+    EditBut(ComboBoxModifierButeuseButeuse.Selected.Index, '',
+      ComboBoxModifierButeuseClubs.Selected.Index,
+      ComboBoxModifierButeuseJournee.Selected.Text, Edit8.Text);
+  end;
 end;
 
 procedure TForm1.ComboBox1Change(Sender: TObject);
@@ -517,40 +555,45 @@ var
   journee, clubs, buteuses: TStringList;
   I: Integer;
 begin
-  buteuses := RequestButeusesCompet
-    (ComboBoxModifierButeuseCompet.Selected.Text);
-  try
-    if Assigned(ComboBoxModifierButeuseButeuse) then
-      ComboBoxModifierButeuseButeuse.Clear;
-    for I := 0 to buteuses.Count - 1 do
-      ComboBoxModifierButeuseButeuse.Items.Add(buteuses.Strings[I]);
-  finally
-    buteuses.Free;
-  end;
+  if Assigned(ComboBoxModifierButeuseCompet.Selected) then
+  begin
+    buteuses := RequestButeusesCompet
+      (ComboBoxModifierButeuseCompet.Selected.Text);
+    try
+      if Assigned(ComboBoxModifierButeuseButeuse) then
+        ComboBoxModifierButeuseButeuse.Clear;
+      for I := 0 to buteuses.Count - 1 do
+        ComboBoxModifierButeuseButeuse.Items.Add(buteuses.Strings[I]);
+    finally
+      buteuses.Free;
+    end;
 
-  journee := RequestJourneeButeuse(ComboBoxModifierButeuseCompet.Selected.Text);
-  try
-    ComboBoxModifierButeuseJournee.Clear;
-    for I := 0 to journee.Count - 1 do
-      ComboBoxModifierButeuseJournee.Items.Add(journee.Strings[I]);
-  finally
-    journee.Free;
-  end;
+    journee := RequestJourneeButeuse
+      (ComboBoxModifierButeuseCompet.Selected.Text);
+    try
+      ComboBoxModifierButeuseJournee.Clear;
+      for I := 0 to journee.Count - 1 do
+        ComboBoxModifierButeuseJournee.Items.Add(journee.Strings[I]);
+    finally
+      journee.Free;
+    end;
 
-  clubs := RequestClubsButeuse(ComboBoxModifierButeuseCompet.Selected.Text);
-  try
-    if Assigned(ComboBoxModifierButeuseClubs) then
-      ComboBoxModifierButeuseClubs.Clear;
-    for I := 0 to clubs.Count - 1 do
-      ComboBoxModifierButeuseClubs.Items.Add(clubs.Strings[I]);
-  finally
-    clubs.Free;
+    clubs := RequestClubsButeuse(ComboBoxModifierButeuseCompet.Selected.Text);
+    try
+      if Assigned(ComboBoxModifierButeuseClubs) then
+        ComboBoxModifierButeuseClubs.Clear;
+      for I := 0 to clubs.Count - 1 do
+        ComboBoxModifierButeuseClubs.Items.Add(clubs.Strings[I]);
+    finally
+      clubs.Free;
+    end;
   end;
 end;
 
 procedure TForm1.ComboBoxModifierButeuseButeuseChange(Sender: TObject);
 begin
-  if Assigned(ComboBoxModifierButeuseButeuse.Selected) then
+  if Assigned(ComboBoxModifierButeuseButeuse.Selected) and
+    not Assigned(ComboBoxModifierButeuseJournee.Selected) then
   begin
     EditModifierButeuseNom.Text := ComboBoxModifierButeuseButeuse.Selected.Text;
     ComboBoxModifierButeuseClubs.ItemIndex :=
@@ -570,11 +613,10 @@ end;
 function TForm1.RequestClubFromButeuse(idbuteuse: Integer): Integer;
 var
   jValue: TJSONValue;
-  jsonarray: TJSONArray;
-  ArrayElement: TJSONValue;
   clubID: string;
   I: Integer;
 begin
+  Result := 0;
 
   RESTClient14.BaseURL := 'https://www.famfoot.fr/api/club/club/buteuse/' +
     IntToStr(idbuteuse);
@@ -604,6 +646,7 @@ var
   jsonarray: TJSONArray;
   ArrayElement: TJSONValue;
 begin
+  Result := 0;
   buteuseID := buteusesids.Strings[indexButeuse];
 
   RESTClient12.BaseURL := 'https://www.famfoot.fr/api/buts/buts/buteuse/' +
