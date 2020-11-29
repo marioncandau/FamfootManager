@@ -326,11 +326,17 @@ end;
 procedure TForm1.Button5Click(Sender: TObject);
 begin
   TabControl3.ActiveTab := TabItemNouvelleButeuse;
-  self.ComboBoxNewButCompet.ItemIndex := -1;
-  self.ComboBoxNewButClub.ItemIndex := -1;
-  self.ComboBoxNewButButeuse.ItemIndex := -1;
-  self.ComboBoxNewButJournee.ItemIndex := -1;
+  if Assigned(self.ComboBoxNewButCompet) then
+    self.ComboBoxNewButCompet.ItemIndex := -1;
+  if Assigned(self.ComboBoxNewButClub) then
+    self.ComboBoxNewButClub.ItemIndex := -1;
+  if Assigned(self.ComboBoxNewButButeuse) then
+    self.ComboBoxNewButButeuse.ItemIndex := -1;
+  if Assigned(self.ComboBoxNewButJournee) then
+    self.ComboBoxNewButJournee.ItemIndex := -1;
   Edit5.Text := '';
+  Edit4.Text := '';
+  Layout15.Visible := false;
   SpeedButton1.Visible := true;
 end;
 
@@ -687,13 +693,16 @@ begin
 
   ComboBoxNewButButeuse.Items.Add('Nouvelle');
 
-  buteuses := RequestButeusesClub
-    (StrToInt(clubsids.Strings[ComboBoxNewButClub.Selected.Index]));
-  try
-    for I := 0 to buteuses.Count - 1 do
-      ComboBoxNewButButeuse.Items.Add(buteuses.Strings[I]);
-  finally
-    buteuses.Free;
+  if Assigned(ComboBoxNewButClub.Selected) then
+  begin
+    buteuses := RequestButeusesClub
+      (StrToInt(clubsids.Strings[ComboBoxNewButClub.Selected.Index]));
+    try
+      for I := 0 to buteuses.Count - 1 do
+        ComboBoxNewButButeuse.Items.Add(buteuses.Strings[I]);
+    finally
+      buteuses.Free;
+    end;
   end;
 
 end;
@@ -703,22 +712,25 @@ var
   journee, clubs: TStringList;
   I: Integer;
 begin
-  journee := RequestJourneeButeuse(ComboBoxNewButCompet.Selected.Text);
-  try
-    ComboBoxNewButJournee.Clear;
-    for I := 0 to journee.Count - 1 do
-      ComboBoxNewButJournee.Items.Add(journee.Strings[I]);
-  finally
-    journee.Free;
-  end;
+  if Assigned(ComboBoxNewButCompet.Selected) then
+  begin
+    journee := RequestJourneeButeuse(ComboBoxNewButCompet.Selected.Text);
+    try
+      ComboBoxNewButJournee.Clear;
+      for I := 0 to journee.Count - 1 do
+        ComboBoxNewButJournee.Items.Add(journee.Strings[I]);
+    finally
+      journee.Free;
+    end;
 
-  clubs := RequestClubsButeuse(ComboBoxNewButCompet.Selected.Text);
-  try
-    ComboBoxNewButClub.Clear;
-    for I := 0 to clubs.Count - 1 do
-      ComboBoxNewButClub.Items.Add(clubs.Strings[I]);
-  finally
-    clubs.Free;
+    clubs := RequestClubsButeuse(ComboBoxNewButCompet.Selected.Text);
+    try
+      ComboBoxNewButClub.Clear;
+      for I := 0 to clubs.Count - 1 do
+        ComboBoxNewButClub.Items.Add(clubs.Strings[I]);
+    finally
+      clubs.Free;
+    end;
   end;
 end;
 
