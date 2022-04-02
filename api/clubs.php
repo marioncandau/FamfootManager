@@ -10,17 +10,15 @@
 		$compet = str_replace('é', '&eacute;', $compet);
 		$compet = str_replace('à', '&agrave;', $compet);
 		$compet = str_replace('è', '&egrave;', $compet);
-		$query = "SELECT DISTINCT equipe1_id FROM matchs WHERE competition = '".$compet."'";
-		$response = array();
-		$result = mysqli_query($conn, $query);
-		while($row = mysqli_fetch_assoc($result))
-		{
-			$q2 = "SELECT club, contact FROM geocodage WHERE contact = ".$row['equipe1_id']." and 1";
-			$r2 = mysqli_query($conn, $q2);
-			$row2 = mysqli_fetch_assoc($r2);
-			$row2 = array_map("utf8_encode", $row2);
-			$response[] = str_replace('\\', '', $row2);
-		}
+		$query = "SELECT DISTINCT geocodage.club as club, geocodage.contact AS contact FROM geocodage INNER JOIN matchs ON matchs.equipe1_id = geocodage.contact WHERE matchs.competition = '".$compet."'";
+		$response = [];
+        $result = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $str = str_replace('&eacute;', '%C3%A9', $row);
+            $str = str_replace('&agrave;', '%C3%A0', $str);
+            $str = str_replace('&egrave;', '%C3%A8', $str);
+            $response[] = $str;
+        }
 		header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 	}

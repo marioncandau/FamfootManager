@@ -25,6 +25,7 @@
 	function getMatchFromDate($date='')
 	{
 		global $conn;
+		$date = str_replace('é', '&eacute;', $date);
 		$query = "SELECT * FROM matchs";
 		if($date != '')
 		{
@@ -43,6 +44,8 @@
 	function getMatchFromDateAndCompet($date='', $compet='')
 	{
 		global $conn;
+		$date = str_replace('é', '&eacute;', $date);
+		$compet = str_replace('!', '+', $compet);
 		$query = "SELECT * FROM matchs";
 		if($date != '')
 		{

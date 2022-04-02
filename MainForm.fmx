@@ -38,7 +38,6 @@ object Form1: TForm1
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'backtoolbutton'
-        Text = 'SpeedButton1'
         OnClick = SpeedButton1Click
       end
     end
@@ -808,6 +807,7 @@ object Form1: TForm1
     Top = 72
   end
   object RESTRequest1: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient1
     Params = <
@@ -844,6 +844,7 @@ object Form1: TForm1
     Top = 176
   end
   object RESTRequest2: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient2
     Method = rmPUT
@@ -886,6 +887,7 @@ object Form1: TForm1
     Top = 288
   end
   object RESTRequest3: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient3
     Params = <
@@ -901,6 +903,7 @@ object Form1: TForm1
     Top = 184
   end
   object RESTRequest4: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient4
     Params = <
@@ -937,6 +940,7 @@ object Form1: TForm1
     Top = 240
   end
   object RESTRequest5: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient5
     Params = <
@@ -969,6 +973,7 @@ object Form1: TForm1
     Top = 336
   end
   object RESTRequest6: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient6
     Params = <
@@ -1001,6 +1006,7 @@ object Form1: TForm1
     Top = 392
   end
   object RESTRequest7: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient7
     Params = <
@@ -1033,6 +1039,7 @@ object Form1: TForm1
     Top = 448
   end
   object RESTRequest8: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient8
     Params = <
@@ -1065,6 +1072,7 @@ object Form1: TForm1
     Top = 496
   end
   object RESTRequest9: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient9
     Params = <
@@ -1084,6 +1092,7 @@ object Form1: TForm1
     Top = 496
   end
   object RESTRequest10: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient10
     Method = rmPOST
@@ -1130,6 +1139,7 @@ object Form1: TForm1
     Top = 144
   end
   object RESTRequest11: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient11
     Method = rmPUT
@@ -1163,6 +1173,7 @@ object Form1: TForm1
     Top = 80
   end
   object RESTRequest12: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient12
     Params = <
@@ -1195,6 +1206,7 @@ object Form1: TForm1
     Top = 504
   end
   object RESTRequest13: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient13
     Params = <
@@ -1227,6 +1239,7 @@ object Form1: TForm1
     Top = 88
   end
   object RESTRequest14: TRESTRequest
+    AssignedValues = [rvAccept]
     Accept = '*/*'
     Client = RESTClient14
     Params = <

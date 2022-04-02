@@ -8,7 +8,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
   FMX.Layouts, FMX.StdCtrls, FMX.Controls.Presentation, FMX.ListBox,
   FMX.ScrollBox, FMX.Memo, REST.Types, REST.Client, Data.Bind.Components,
-  Data.Bind.ObjectScope, System.JSON, FMX.Edit, FMX.Objects;
+  Data.Bind.ObjectScope, System.JSON, FMX.Edit, FMX.Objects, FMX.Memo.Types;
 
 type
   TForm1 = class(TForm)
@@ -846,7 +846,7 @@ begin
     jsonarray := jValue as TJSONArray;
     for ArrayElement in jsonarray do
     begin
-      Result.Add(ArrayElement.FindValue('club').ToString.Replace('"', ''));
+      Result.Add(ArrayElement.FindValue('club').ToString.Replace('"', '').Replace('%C3%A9', 'é'));
       clubsids.Add(ArrayElement.FindValue('contact').ToString.Replace('"', ''))
     end;
   end
